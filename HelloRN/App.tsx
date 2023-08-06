@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import ClassView from './src/components/ClassView';
+import FunctionView from './src/components/FunctionView';
 
 function App(): JSX.Element {
 
@@ -24,7 +25,8 @@ function App(): JSX.Element {
       {/* chapter 6.5 */}
       {/* 当 showClassView 为 true 时，才添加 ClassView 组件 */}
       {/* { showClassView && <ClassView /> } */}
-      <ClassView name="zhangsan" age={12} level="top" sex={true} />
+      {/* <ClassView name="zhangsan" age={12} level="top" sex={true} /> */}
+      <FunctionView name="zhangsan" age={12} level="top" sex={true} />
     </View>
   );
 }
