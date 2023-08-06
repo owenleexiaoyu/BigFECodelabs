@@ -5,7 +5,10 @@ class ClassView extends React.Component {
 
     constructor(props) {
         super(props);
+        // chapter 6.5
         // console.log("constructor ...");
+
+        // chapter 6.5
         // const { name, age, level, sex } = props;
         // console.log(`name=${name}, age=${age}, level=${level}, sex=${sex}`);
         this.state = {
@@ -14,6 +17,7 @@ class ClassView extends React.Component {
     }
     
     componentDidMount() {
+        // chapter 6.5
         // console.log("componentDidMount ...");
         setTimeout(() => {
             this.setState({
@@ -23,10 +27,12 @@ class ClassView extends React.Component {
     }
 
     componentWillUnmount() {
+        // chapter 6.5
         // console.log("componentWillUnmount ...");
     }
 
     render() {
+        // chapter 6.5
         // console.log("render ...");
         const { name, age, level, sex } = this.props;
         const { address } = this.state;
