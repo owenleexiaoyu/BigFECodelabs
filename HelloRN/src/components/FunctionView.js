@@ -59,25 +59,62 @@ export default (props) => {
         console.log(`address=${address}`);
     }, [address]);
 
-    return (
-        <View style={{ width: "100%", height: 200, backgroundColor: "#00bc24"}} >
+    const renderProps = () => {
+        return (
             <Text style={{ fontSize: 20, color: "white"}}>
                 {`name=${name}, age=${age}, level=${level}, sex=${sex}`}
             </Text>
-            <Text style={{ fontSize: 20, color: "black"}}>
+        );
+    };
+
+    const renderAddress = () => {
+        return (
+            <Text style={{ fontSize: 20, color: "yellow"}}>
                 {address}
             </Text>
+        );
+    };
+
+    const arr = ["AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "GGG", "HHH", "III"];
+
+    // 标准写法
+    const renderList =() => {
+        return (
             <ScrollView ref={scrollViewRef}>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>AAA</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>BBB</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>CCC</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>DDD</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>EEE</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>FFF</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>GGG</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>HHH</Text>
-                <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>III</Text>
+                { arr.map((item) => {
+                    return (
+                        <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>{item}</Text>
+                    );
+                    })
+                }
             </ScrollView>
+        );
+    };
+
+    const getListView = () => {
+        const viewList = [];
+        for (let i = 0; i < 5; i++) {
+            viewList.push(<Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>{`List item ${i + 1}`}</Text>);
+        }
+        return viewList;
+    };
+
+    // 简略写法
+    // const renderList =() => {
+    //     return (
+    //         <ScrollView ref={scrollViewRef}>
+    //             { arr.map(item => <Text style={{ fontSize: 24, marginVertical: 12, color: "white"}}>{item}</Text>) }
+    //         </ScrollView>
+    //     );
+    // };
+
+
+    return (
+        <View style={{ width: "100%", height: 200, backgroundColor: "#00bc24"}} >
+            { renderProps() }
+            { renderAddress() }
+            { renderList() }
+            {/* { getListView() } */}
         </View>
     );
 }

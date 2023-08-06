@@ -6,6 +6,8 @@ import {
 
 import ClassView from './src/components/ClassView';
 import FunctionView from './src/components/FunctionView';
+import InfoCard from './src/components/InfoCard';
+import InfoPage from './src/components/InfoPage';
 
 function App(): JSX.Element {
 
@@ -27,6 +29,7 @@ function App(): JSX.Element {
       {/* { showClassView && <ClassView /> } */}
       {/* <ClassView name="zhangsan" age={12} level="top" sex={true} /> */}
       <FunctionView name="zhangsan" age={12} level="top" sex={true} />
+      {/* <InfoPage /> */}
     </View>
   );
 }
