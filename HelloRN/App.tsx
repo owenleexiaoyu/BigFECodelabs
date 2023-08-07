@@ -8,6 +8,7 @@ import ClassView from './src/components/ClassView';
 import FunctionView from './src/components/FunctionView';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
+import TimerView from './src/components/TimerView';
 
 function App(): JSX.Element {
 
@@ -28,8 +29,9 @@ function App(): JSX.Element {
       {/* 当 showClassView 为 true 时，才添加 ClassView 组件 */}
       {/* { showClassView && <ClassView /> } */}
       {/* <ClassView name="zhangsan" age={12} level="top" sex={true} /> */}
-      <FunctionView name="zhangsan" age={12} level="top" sex={true} />
+      {/* <FunctionView name="zhangsan" age={12} level="top" sex={true} /> */}
       {/* <InfoPage /> */}
+      <TimerView />
     </View>
   );
 }
