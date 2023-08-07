@@ -9,6 +9,7 @@ import FunctionView from './src/components/FunctionView';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
 import TimerView from './src/components/TimerView';
+import ViewDemo from './src/components/ViewDemo';
 
 function App(): JSX.Element {
 
@@ -31,7 +32,8 @@ function App(): JSX.Element {
       {/* <ClassView name="zhangsan" age={12} level="top" sex={true} /> */}
       {/* <FunctionView name="zhangsan" age={12} level="top" sex={true} /> */}
       {/* <InfoPage /> */}
-      <TimerView />
+      {/* <TimerView /> */}
+      <ViewDemo />
     </View>
   );
 }
