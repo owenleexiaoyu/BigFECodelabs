@@ -1,6 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
-import chandler from "../assets/images/chandler.png"
+import { View, StyleSheet, Text } from "react-native";
 
 export default (props) => {
 

@@ -6,6 +6,7 @@ import {
 
 import ClassView from './src/components/ClassView';
 import FunctionView from './src/components/FunctionView';
+import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import ImageDemo from './src/components/ImageDemo';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
@@ -37,7 +38,8 @@ function App(): JSX.Element {
       {/* <TimerView /> */}
       {/* <ViewDemo /> */}
       {/* <TextDemo /> */}
-      <ImageDemo />
+      {/* <ImageDemo /> */}
+      <ImageBackgroundDemo />
     </View>
   );
 }
