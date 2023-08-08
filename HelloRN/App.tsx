@@ -8,6 +8,7 @@ import ClassView from './src/components/ClassView';
 import FunctionView from './src/components/FunctionView';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
+import TextDemo from './src/components/TextDemo';
 import TimerView from './src/components/TimerView';
 import ViewDemo from './src/components/ViewDemo';
 
@@ -33,7 +34,8 @@ function App(): JSX.Element {
       {/* <FunctionView name="zhangsan" age={12} level="top" sex={true} /> */}
       {/* <InfoPage /> */}
       {/* <TimerView /> */}
-      <ViewDemo />
+      {/* <ViewDemo /> */}
+      <TextDemo />
     </View>
   );
 }
