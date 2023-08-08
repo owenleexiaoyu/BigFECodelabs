@@ -1,0 +1,2 @@
+export const imageUrl = "https://reactnative.cn/img/homepage/phones.png";
+export const largeImageUrl = "https://images.pexels.com/photos/17595328/pexels-photo-17595328/free-photo-of-university.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load";
