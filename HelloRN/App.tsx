@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import ButtonDemo from './src/components/ButtonDemo';
 
 import ClassView from './src/components/ClassView';
 import FunctionView from './src/components/FunctionView';
@@ -10,12 +11,15 @@ import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import ImageDemo from './src/components/ImageDemo';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
+import PressableDemo from './src/components/PressableDemo';
 import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
+import TouchableHighlightDemo from './src/components/TouchableHighlightDemo';
 import TouchableOpacityDemo from './src/components/TouchableOpacityDemo';
+import TouchableWithoutFeedbackDemo from './src/components/TouchableWithoutFeedbackDemo';
 import ViewDemo from './src/components/ViewDemo';
 
 function App(): JSX.Element {
@@ -46,7 +50,11 @@ function App(): JSX.Element {
       {/* <ImageBackgroundDemo /> */}
       {/* <TextInputDemo /> */}
       {/* <TouchableOpacityDemo /> */}
-      <StatusBarDemo />
+      {/* <TouchableHighlightDemo /> */}
+      {/* <TouchableWithoutFeedbackDemo /> */}
+      {/* <ButtonDemo /> */}
+      <PressableDemo />
+      {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
     </View>
   );
