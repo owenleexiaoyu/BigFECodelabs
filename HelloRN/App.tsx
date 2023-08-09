@@ -10,6 +10,7 @@ import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import ImageDemo from './src/components/ImageDemo';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
+import SwitchDemo from './src/components/SwitchDemo';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
@@ -43,7 +44,8 @@ function App(): JSX.Element {
       {/* <ImageDemo /> */}
       {/* <ImageBackgroundDemo /> */}
       {/* <TextInputDemo /> */}
-      <TouchableOpacityDemo />
+      {/* <TouchableOpacityDemo /> */}
+      <SwitchDemo />
     </View>
   );
 }
