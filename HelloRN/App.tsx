@@ -13,6 +13,7 @@ import InfoPage from './src/components/InfoPage';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
+import TouchableOpacityDemo from './src/components/TouchableOpacityDemo';
 import ViewDemo from './src/components/ViewDemo';
 
 function App(): JSX.Element {
@@ -41,7 +42,8 @@ function App(): JSX.Element {
       {/* <TextDemo /> */}
       {/* <ImageDemo /> */}
       {/* <ImageBackgroundDemo /> */}
-      <TextInputDemo />
+      {/* <TextInputDemo /> */}
+      <TouchableOpacityDemo />
     </View>
   );
 }
