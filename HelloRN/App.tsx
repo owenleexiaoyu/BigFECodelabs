@@ -11,6 +11,7 @@ import ImageDemo from './src/components/ImageDemo';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
 import TextDemo from './src/components/TextDemo';
+import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
 import ViewDemo from './src/components/ViewDemo';
 
@@ -39,7 +40,8 @@ function App(): JSX.Element {
       {/* <ViewDemo /> */}
       {/* <TextDemo /> */}
       {/* <ImageDemo /> */}
-      <ImageBackgroundDemo />
+      {/* <ImageBackgroundDemo /> */}
+      <TextInputDemo />
     </View>
   );
 }

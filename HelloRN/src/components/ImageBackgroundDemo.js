@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { View, StyleSheet, Image, Text, ImageBackground } from "react-native";
 import bg_card from "../assets/images/bg_card.png";
 import icon_bank from "../assets/images/icon_bank.png";
+import DescView from "./DescView";
 
 export default () => {
 
@@ -10,6 +11,7 @@ export default () => {
 
     return (
         <View style={styles.root}>
+            <DescView title="ImageBackground 银行卡布局" />
             <ImageBackground
                 style={styles.viewStyle}
                 imageStyle={styles.imgStyle}
