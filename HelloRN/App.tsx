@@ -10,6 +10,7 @@ import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import ImageDemo from './src/components/ImageDemo';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
+import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
@@ -45,7 +46,8 @@ function App(): JSX.Element {
       {/* <ImageBackgroundDemo /> */}
       {/* <TextInputDemo /> */}
       {/* <TouchableOpacityDemo /> */}
-      <SwitchDemo />
+      <StatusBarDemo />
+      {/* <SwitchDemo /> */}
     </View>
   );
 }
