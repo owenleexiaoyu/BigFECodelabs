@@ -11,6 +11,7 @@ import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import ImageDemo from './src/components/ImageDemo';
 import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
+import ModalDemo from './src/components/ModalDemo';
 import PressableDemo from './src/components/PressableDemo';
 import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
@@ -53,7 +54,8 @@ function App(): JSX.Element {
       {/* <TouchableHighlightDemo /> */}
       {/* <TouchableWithoutFeedbackDemo /> */}
       {/* <ButtonDemo /> */}
-      <PressableDemo />
+      {/* <PressableDemo /> */}
+      <ModalDemo />
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
     </View>
