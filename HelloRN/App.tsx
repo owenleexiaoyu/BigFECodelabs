@@ -13,6 +13,7 @@ import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
 import ModalDemo from './src/components/ModalDemo';
 import PressableDemo from './src/components/PressableDemo';
+import ScrollViewDemo from './src/components/ScrollViewDemo';
 import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TextDemo from './src/components/TextDemo';
@@ -55,7 +56,8 @@ function App(): JSX.Element {
       {/* <TouchableWithoutFeedbackDemo /> */}
       {/* <ButtonDemo /> */}
       {/* <PressableDemo /> */}
-      <ModalDemo />
+      <ScrollViewDemo />
+      {/* <ModalDemo /> */}
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
     </View>
