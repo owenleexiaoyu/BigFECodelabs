@@ -15,6 +15,7 @@ import InfoPage from './src/components/InfoPage';
 import ModalDemo from './src/components/ModalDemo';
 import PressableDemo from './src/components/PressableDemo';
 import ScrollViewDemo from './src/components/ScrollViewDemo';
+import SectionListDemo from './src/components/SectionListDemo';
 import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TextDemo from './src/components/TextDemo';
@@ -58,7 +59,8 @@ function App(): JSX.Element {
       {/* <ButtonDemo /> */}
       {/* <PressableDemo /> */}
       {/* <ScrollViewDemo /> */}
-      <FlatListDemo />
+      {/* <FlatListDemo /> */}
+      <SectionListDemo />
       {/* <ModalDemo /> */}
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
