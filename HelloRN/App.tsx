@@ -6,6 +6,7 @@ import {
 import ButtonDemo from './src/components/ButtonDemo';
 
 import ClassView from './src/components/ClassView';
+import FlatListDemo from './src/components/FlatListDemo';
 import FunctionView from './src/components/FunctionView';
 import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import ImageDemo from './src/components/ImageDemo';
@@ -56,7 +57,8 @@ function App(): JSX.Element {
       {/* <TouchableWithoutFeedbackDemo /> */}
       {/* <ButtonDemo /> */}
       {/* <PressableDemo /> */}
-      <ScrollViewDemo />
+      {/* <ScrollViewDemo /> */}
+      <FlatListDemo />
       {/* <ModalDemo /> */}
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
