@@ -14,6 +14,7 @@ import InfoCard from './src/components/InfoCard';
 import InfoPage from './src/components/InfoPage';
 import ModalDemo from './src/components/ModalDemo';
 import PressableDemo from './src/components/PressableDemo';
+import ProfileInfo from './src/components/ProfileInfo';
 import ScrollViewDemo from './src/components/ScrollViewDemo';
 import SectionListDemo from './src/components/SectionListDemo';
 import StatusBarDemo from './src/components/StatusBarDemo';
@@ -60,10 +61,11 @@ function App(): JSX.Element {
       {/* <PressableDemo /> */}
       {/* <ScrollViewDemo /> */}
       {/* <FlatListDemo /> */}
-      <SectionListDemo />
+      {/* <SectionListDemo /> */}
       {/* <ModalDemo /> */}
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
+      <ProfileInfo />
     </View>
   );
 }
