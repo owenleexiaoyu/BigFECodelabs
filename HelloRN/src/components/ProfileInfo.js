@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Image, ImageBackground, TouchableOpacity, Modal } from "react-native";
+import { View, StyleSheet, Text, Image, ImageBackground, TouchableOpacity, Modal, StatusBar } from "react-native";
 import icon_menu from "../assets/images/icon_menu.png";
 import icon_share from "../assets/images/icon_share.png";
 import icon_bg from "../assets/images/icon_bg.png";
@@ -9,8 +9,28 @@ import icon_code from "../assets/images/icon_code.png";
 import icon_male from "../assets/images/icon_male.png";
 import icon_setting from "../assets/images/icon_setting.png";
 import icon_1 from "../assets/images/icon_1.png";
+import icon_2 from "../assets/images/icon_2.png";
+import icon_3 from "../assets/images/icon_3.png";
 import icon_close_modal from "../assets/images/icon_close_modal.png";
 import SectionListDemo from "./SectionListDemo";
+
+const footerDatas = [
+    {
+        image: icon_1,
+        text: "用一句话，分享今天的快乐吧~",
+        buttonText: "去分享"
+    },
+    {
+        image: icon_2,
+        text: "快去收藏你喜欢的作品吧~",
+        buttonText: "去收藏"
+    },
+    {
+        image: icon_3,
+        text: "你还没有给作品点赞哦~",
+        buttonText: "去点赞"
+    }
+]
 
 export default () => {
 
@@ -19,8 +39,12 @@ export default () => {
             <View
                 style={styles.navBar}
             >
-                <Image style={styles.navBarIcon} source={icon_menu} />
-                <Image style={styles.navBarIcon} source={icon_share} />
+                <TouchableOpacity>
+                    <Image style={styles.navBarIcon} source={icon_menu} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Image style={styles.navBarIcon} source={icon_share} />
+                </TouchableOpacity>
             </View>
         );
     }
@@ -31,15 +55,19 @@ export default () => {
             <View style={styles.basicInfo}>
                 <View>
                     <Image style={styles.avatar} source={default_avatar} />
-                    <Image style={styles.fastFollow} source={icon_add} />
+                    <TouchableOpacity>
+                        <Image style={styles.fastFollow} source={icon_add} />
+                    </TouchableOpacity>
                 </View>
                 <View>
                     <Text style={styles.nickname}>OwenLee</Text>
                     <View style={styles.uidContainer}>
                         <Text style={styles.uid}>小红书号：2924354040</Text>
+                        <TouchableOpacity>
                         <Image
                             style={styles.qrCodeIcon}
                             source={icon_code} />
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -75,6 +103,9 @@ export default () => {
 
     return (
         <View style={styles.root}>
+            <StatusBar 
+                translucent={true} 
+                backgroundColor="transparent" />
             <ImageBackground
                 style={styles.profileHeader}
                 source={icon_bg}
@@ -165,9 +196,9 @@ export default () => {
                     </TouchableOpacity>
                 </View>
                 <EmptyView
-                    image={icon_1}
-                    text={"用一句话，分享今天的快乐吧~"}
-                    buttonText={"去分享"}
+                    image={footerDatas[tabIndex].image}
+                    text={footerDatas[tabIndex].text}
+                    buttonText={footerDatas[tabIndex].buttonText}
                 />
 
             </View>
@@ -231,15 +262,16 @@ const styles = StyleSheet.create({
     },
     navBar: {
         width: "100%",
-        height: 60,
+        height: 50,
+        marginTop: 20,
         paddingHorizontal: 20,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between"
     },
     navBarIcon: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
     },
     basicInfo: {
         width: "100%",
@@ -286,7 +318,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "white",
         marginHorizontal: 20,
-        marginVertical: 10,
+        marginVertical: 5,
     },
     sex: {
         width: 36,
@@ -294,7 +326,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: "#DDDDDD30",
         marginHorizontal: 20,
-        marginVertical: 10,
+        marginVertical: 5,
     },
     sexIcon: {
         width: 16,
