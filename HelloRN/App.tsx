@@ -21,6 +21,7 @@ import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TestAlertConsole from './src/components/TestAlertConsole';
 import TestApi from './src/components/TestAlertConsole';
+import TestDimensions from './src/components/TestDimensions';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
@@ -68,7 +69,8 @@ function App(): JSX.Element {
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
       {/* <ProfileInfo /> */}
-      <TestAlertConsole />
+      {/* <TestAlertConsole /> */}
+      <TestDimensions />
     </View>
   );
 }
