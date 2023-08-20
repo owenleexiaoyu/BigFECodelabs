@@ -19,6 +19,8 @@ import ScrollViewDemo from './src/components/ScrollViewDemo';
 import SectionListDemo from './src/components/SectionListDemo';
 import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
+import TestAlertConsole from './src/components/TestAlertConsole';
+import TestApi from './src/components/TestAlertConsole';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
@@ -65,7 +67,8 @@ function App(): JSX.Element {
       {/* <ModalDemo /> */}
       {/* <StatusBarDemo /> */}
       {/* <SwitchDemo /> */}
-      <ProfileInfo />
+      {/* <ProfileInfo /> */}
+      <TestAlertConsole />
     </View>
   );
 }
