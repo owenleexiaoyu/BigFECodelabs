@@ -23,6 +23,7 @@ import TestAlertConsole from './src/components/TestAlertConsole';
 import TestApi from './src/components/TestAlertConsole';
 import TestDimensions from './src/components/TestDimensions';
 import TestPlatform from './src/components/TestPlatform';
+import TestStyleSheet from './src/components/TestStyleSheet';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
@@ -72,7 +73,8 @@ function App(): JSX.Element {
       {/* <ProfileInfo /> */}
       {/* <TestAlertConsole /> */}
       {/* <TestDimensions /> */}
-      <TestPlatform />
+      {/* <TestPlatform /> */}
+      <TestStyleSheet />
     </View>
   );
 }
