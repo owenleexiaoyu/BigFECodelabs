@@ -22,6 +22,7 @@ import SwitchDemo from './src/components/SwitchDemo';
 import TestAlertConsole from './src/components/TestAlertConsole';
 import TestApi from './src/components/TestAlertConsole';
 import TestDimensions from './src/components/TestDimensions';
+import TestLinking from './src/components/TestLinking';
 import TestPlatform from './src/components/TestPlatform';
 import TestStyleSheet from './src/components/TestStyleSheet';
 import TextDemo from './src/components/TextDemo';
@@ -74,7 +75,8 @@ function App(): JSX.Element {
       {/* <TestAlertConsole /> */}
       {/* <TestDimensions /> */}
       {/* <TestPlatform /> */}
-      <TestStyleSheet />
+      {/* <TestStyleSheet /> */}
+      <TestLinking />
     </View>
   );
 }
