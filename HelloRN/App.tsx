@@ -23,6 +23,7 @@ import TestAlertConsole from './src/components/TestAlertConsole';
 import TestApi from './src/components/TestAlertConsole';
 import TestDimensions from './src/components/TestDimensions';
 import TestLinking from './src/components/TestLinking';
+import TestPixelRatio from './src/components/TestPixelRatio';
 import TestPlatform from './src/components/TestPlatform';
 import TestStyleSheet from './src/components/TestStyleSheet';
 import TextDemo from './src/components/TextDemo';
@@ -76,7 +77,8 @@ function App(): JSX.Element {
       {/* <TestDimensions /> */}
       {/* <TestPlatform /> */}
       {/* <TestStyleSheet /> */}
-      <TestLinking />
+      {/* <TestLinking /> */}
+      <TestPixelRatio />
     </View>
   );
 }
