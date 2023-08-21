@@ -21,6 +21,7 @@ import StatusBarDemo from './src/components/StatusBarDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TestAlertConsole from './src/components/TestAlertConsole';
 import TestApi from './src/components/TestAlertConsole';
+import TestBackHander from './src/components/TestBackHander';
 import TestDimensions from './src/components/TestDimensions';
 import TestLinking from './src/components/TestLinking';
 import TestPixelRatio from './src/components/TestPixelRatio';
@@ -78,7 +79,8 @@ function App(): JSX.Element {
       {/* <TestPlatform /> */}
       {/* <TestStyleSheet /> */}
       {/* <TestLinking /> */}
-      <TestPixelRatio />
+      {/* <TestPixelRatio /> */}
+      <TestBackHander />
     </View>
   );
 }
