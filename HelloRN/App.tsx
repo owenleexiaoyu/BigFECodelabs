@@ -24,6 +24,7 @@ import TestApi from './src/components/TestAlertConsole';
 import TestBackHander from './src/components/TestBackHander';
 import TestDimensions from './src/components/TestDimensions';
 import TestLinking from './src/components/TestLinking';
+import TestPermissionsAndroid from './src/components/TestPermissionsAndroid';
 import TestPixelRatio from './src/components/TestPixelRatio';
 import TestPlatform from './src/components/TestPlatform';
 import TestStyleSheet from './src/components/TestStyleSheet';
@@ -80,7 +81,8 @@ function App(): JSX.Element {
       {/* <TestStyleSheet /> */}
       {/* <TestLinking /> */}
       {/* <TestPixelRatio /> */}
-      <TestBackHander />
+      {/* <TestBackHander /> */}
+      <TestPermissionsAndroid />
     </View>
   );
 }
