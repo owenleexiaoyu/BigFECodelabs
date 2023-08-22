@@ -28,6 +28,7 @@ import TestPermissionsAndroid from './src/components/TestPermissionsAndroid';
 import TestPixelRatio from './src/components/TestPixelRatio';
 import TestPlatform from './src/components/TestPlatform';
 import TestStyleSheet from './src/components/TestStyleSheet';
+import TestVibration from './src/components/TestVibration';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TimerView from './src/components/TimerView';
@@ -82,7 +83,8 @@ function App(): JSX.Element {
       {/* <TestLinking /> */}
       {/* <TestPixelRatio /> */}
       {/* <TestBackHander /> */}
-      <TestPermissionsAndroid />
+      {/* <TestPermissionsAndroid /> */}
+      <TestVibration />
     </View>
   );
 }
