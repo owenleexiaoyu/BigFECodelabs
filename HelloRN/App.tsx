@@ -23,6 +23,7 @@ import TestAlertConsole from './src/components/TestAlertConsole';
 import TestApi from './src/components/TestAlertConsole';
 import TestBackHander from './src/components/TestBackHander';
 import TestDimensions from './src/components/TestDimensions';
+import TestKeyboard from './src/components/TestKeyboard';
 import TestLinking from './src/components/TestLinking';
 import TestPermissionsAndroid from './src/components/TestPermissionsAndroid';
 import TestPixelRatio from './src/components/TestPixelRatio';
@@ -88,7 +89,8 @@ function App(): JSX.Element {
       {/* <TestPermissionsAndroid /> */}
       {/* <TestVibration /> */}
       {/* <TestToastAndroid /> */}
-      <TestTransform />
+      {/* <TestTransform /> */}
+      <TestKeyboard />
     </View>
   );
 }
