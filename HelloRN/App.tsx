@@ -29,6 +29,7 @@ import TestPixelRatio from './src/components/TestPixelRatio';
 import TestPlatform from './src/components/TestPlatform';
 import TestStyleSheet from './src/components/TestStyleSheet';
 import TestToastAndroid from './src/components/TestToastAndroid';
+import TestTransform from './src/components/TestTransform';
 import TestVibration from './src/components/TestVibration';
 import TextDemo from './src/components/TextDemo';
 import TextInputDemo from './src/components/TextInputDemo';
@@ -86,7 +87,8 @@ function App(): JSX.Element {
       {/* <TestBackHander /> */}
       {/* <TestPermissionsAndroid /> */}
       {/* <TestVibration /> */}
-      <TestToastAndroid />
+      {/* <TestToastAndroid /> */}
+      <TestTransform />
     </View>
   );
 }
