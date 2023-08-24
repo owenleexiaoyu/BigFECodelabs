@@ -128,21 +128,24 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
     }
 
     const onSaveAccount = () => {
-        if (!name || !account || !password) {
+        if (name.length === 0 || account.length === 0 || password.length === 0) {
             ToastAndroid.show("有内容为空，请完善信息", ToastAndroid.SHORT);
             return;
         }
         const id = getUUID();
-        console.log(`id=${id}`);
-        console.log(`name=${name}, account=${account}, password=${password}`);
-        const newAccount = {id, name, account, password};
+        console.log(`id=${id}, type=${type}, name=${name}, account=${account}, password=${password}`);
+        const newAccount = {id, type, name, account, password};
         load("accountList").then(data => {
             let accountList = data ? JSON.parse(data) : [];
             accountList.push(newAccount);
             save("accountList", JSON.stringify(accountList)).then(() => {
+                // 清除内部持有的
+                setName("");
+                setAccount("");
+                setPassword("");
+                hide();
                 load("accountList").then(newData => {
                     console.log(newData);
-                    hide();
                 });
             })
         });
