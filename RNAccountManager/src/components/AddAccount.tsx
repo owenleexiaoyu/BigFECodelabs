@@ -170,19 +170,19 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
                     <Text style={styles.subtitleText}>账号名称</Text>
                     { renderInput({
                         onChangeText: (text: string) => {
-                            setName(text);
+                            setName(text.trim());
                         }
                     }) }
                     <Text style={styles.subtitleText}>账号</Text>
                     { renderInput({
                         onChangeText: (text: string) => {
-                            setAccount(text);
+                            setAccount(text.trim());
                         }
                     }) }
                     <Text style={styles.subtitleText}>密码</Text>
                     { renderInput({
                         onChangeText: (text: string) => {
-                            setPassword(text);
+                            setPassword(text.trim());
                         }
                     }) }
                     <View style={{marginVertical: 10}}>
