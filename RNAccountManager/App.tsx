@@ -35,6 +35,10 @@ function App(): JSX.Element {
 
 
   useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
     load("accountList").then(data => {
       const accountList = data ? JSON.parse(data) : [];
       const gameList = [];
@@ -60,7 +64,12 @@ function App(): JSX.Element {
       ];
       setSectionData(sectionData);
     });
-  }, []);
+  }
+
+  const onAccountSaveSuccess = () => {
+    loadData();
+  }
+
 
   const renderItem = ({item, index, section}) => {
     const styles = StyleSheet.create({
@@ -210,7 +219,10 @@ function App(): JSX.Element {
             addAccountRef.current.show();
           }}
         />
-        <AddAccount ref={addAccountRef}/>
+        <AddAccount 
+          ref={addAccountRef}
+          onSave={onAccountSaveSuccess}
+        />
       </View>
     </SafeAreaView>
   );
@@ -240,7 +252,9 @@ const styles = StyleSheet.create({
     end: 20,
   },
   listContainer: {
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    paddingBottom: 20,
   },
   addButton: {
     position: "absolute",

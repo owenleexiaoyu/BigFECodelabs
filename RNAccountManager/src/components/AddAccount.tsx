@@ -6,7 +6,7 @@ import { save, load } from "../utils/Storage";
 
 export interface AddAccountProps {
     style?: StyleProp<ViewStyle>;
-    
+    onSave: () => void;
 }
 
 const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
@@ -144,6 +144,7 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
                 setAccount("");
                 setPassword("");
                 hide();
+                props.onSave();
                 load("accountList").then(newData => {
                     console.log(newData);
                 });
