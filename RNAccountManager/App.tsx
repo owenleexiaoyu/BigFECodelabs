@@ -127,7 +127,7 @@ function App(): JSX.Element {
             addAccountRef.current.show(item);
           }}
           onLongPress={() => {
-            Alert.alert("确定删除这个账号吗？", undefined, [
+            Alert.alert("提示", `确定删除「${item.name}」账号吗？`, [
               { 
                 text: "取消",
                 onPress: () => {
