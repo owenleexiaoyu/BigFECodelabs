@@ -9,6 +9,7 @@ import {
   SectionList,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import FloatingButton from './src/components/FloatingButton';
 import icon_add from './src/assets/icon_add.png';
@@ -18,7 +19,7 @@ import icon_bank from './src/assets/icon_bank.png';
 import icon_other from './src/assets/icon_other.png';
 import icon_arrow from './src/assets/icon_arrow.png';
 import AddAccount from './src/components/AddAccount';
-import { load } from './src/utils/Storage';
+import { load, save } from './src/utils/Storage';
 
 function App(): JSX.Element {
 
@@ -70,6 +71,16 @@ function App(): JSX.Element {
     loadData();
   }
 
+  const removeAccount = (account) => {
+    load("accountList").then(data => {
+      let accountList = data ? JSON.parse(data) : [];
+      accountList = accountList.filter(item => item.id !== account.id);
+      save("accountList", JSON.stringify(accountList)).then(() => {
+        loadData();
+      })
+    });
+  }
+
 
   const renderItem = ({item, index, section}) => {
     const styles = StyleSheet.create({
@@ -110,13 +121,34 @@ function App(): JSX.Element {
         }
         ]}>
         <View style={styles.divider}/>
-        <View style={styles.itemInfoCntainer}>
+        <TouchableOpacity 
+          style={styles.itemInfoCntainer}
+          onPress={() => {
+            addAccountRef.current.show(item);
+          }}
+          onLongPress={() => {
+            Alert.alert("确定删除这个账号吗？", undefined, [
+              { 
+                text: "取消",
+                onPress: () => {
+
+                }
+              },
+              {
+                text: "确认",
+                onPress: () => {
+                  removeAccount(item);
+                },
+              }
+            ])
+          }}
+        >
           <Text style={styles.itemName}>{item.name}</Text>
           <View style={styles.accountLayout}>
             <Text style={styles.accountInfo}>{`账号：${item.account}`}</Text>
             <Text style={styles.accountInfo}>{`密码：${showPassword ? item.password : "******"}`}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

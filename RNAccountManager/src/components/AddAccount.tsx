@@ -12,13 +12,29 @@ export interface AddAccountProps {
 const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
 
     const [ visible, setVisible] = useState(false);
+    const [id, setId] = useState("");
     const [type, setType] = useState("游戏");
     const [name, setName] = useState("");
     const [account, setAccount] = useState("");
     const [password, setPassword] = useState("");
+    const [isModify, setIsModify] = useState(false);
 
-    const show = () => {
+    const show = (currentAccount) => {
         setVisible(true);
+        if (currentAccount) {
+            setIsModify(true);
+            setId(currentAccount.id);
+            setType(currentAccount.type);
+            setName(currentAccount.name);
+            setAccount(currentAccount.account);
+            setPassword(currentAccount.password);
+        } else {
+            setId(getUUID());
+            setType("游戏");
+            setName("");
+            setAccount("");
+            setPassword("");
+        }
     }
 
     const hide = () => {
@@ -35,7 +51,7 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
     const renderTitle = () => {
         return (
             <View style={styles.titleLayout}>
-                <Text style={styles.title}>添加账号</Text>
+                <Text style={styles.title}>{isModify ? "编辑账号" : "添加账号" }</Text>
                 <TouchableOpacity 
                     style={styles.closeButton}
                     onPress={hide}
@@ -120,7 +136,8 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
             }
         });
         return (
-            <TextInput 
+            <TextInput
+                value={props.value}
                 style={styles.input} 
                 onChangeText={props.onChangeText}
                 />
@@ -132,17 +149,15 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
             ToastAndroid.show("有内容为空，请完善信息", ToastAndroid.SHORT);
             return;
         }
-        const id = getUUID();
         console.log(`id=${id}, type=${type}, name=${name}, account=${account}, password=${password}`);
         const newAccount = {id, type, name, account, password};
         load("accountList").then(data => {
             let accountList = data ? JSON.parse(data) : [];
+            if (isModify) {
+                accountList = accountList.filter(item => item.id !== id);
+            }
             accountList.push(newAccount);
             save("accountList", JSON.stringify(accountList)).then(() => {
-                // 清除内部持有的
-                setName("");
-                setAccount("");
-                setPassword("");
                 hide();
                 props.onSave();
                 load("accountList").then(newData => {
@@ -170,18 +185,21 @@ const AddAccount: React.FC<AddAccountProps> = forwardRef((props, ref) => {
                     { renderTypes() }
                     <Text style={styles.subtitleText}>账号名称</Text>
                     { renderInput({
+                        value: name,
                         onChangeText: (text: string) => {
                             setName(text.trim());
                         }
                     }) }
                     <Text style={styles.subtitleText}>账号</Text>
                     { renderInput({
+                        value: account,
                         onChangeText: (text: string) => {
                             setAccount(text.trim());
                         }
                     }) }
                     <Text style={styles.subtitleText}>密码</Text>
                     { renderInput({
+                        value: password,
                         onChangeText: (text: string) => {
                             setPassword(text.trim());
                         }
