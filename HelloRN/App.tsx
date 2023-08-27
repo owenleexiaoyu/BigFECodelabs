@@ -39,6 +39,7 @@ import TouchableHighlightDemo from './src/components/TouchableHighlightDemo';
 import TouchableOpacityDemo from './src/components/TouchableOpacityDemo';
 import TouchableWithoutFeedbackDemo from './src/components/TouchableWithoutFeedbackDemo';
 import ViewDemo from './src/components/ViewDemo';
+import TSDemo from './src/ts/TSDemo';
 
 function App(): JSX.Element {
 
@@ -90,7 +91,8 @@ function App(): JSX.Element {
       {/* <TestVibration /> */}
       {/* <TestToastAndroid /> */}
       {/* <TestTransform /> */}
-      <TestKeyboard />
+      {/* <TestKeyboard /> */}
+      <TSDemo />
     </View>
   );
 }
