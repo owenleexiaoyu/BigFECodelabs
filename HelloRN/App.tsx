@@ -40,6 +40,8 @@ import TouchableOpacityDemo from './src/components/TouchableOpacityDemo';
 import TouchableWithoutFeedbackDemo from './src/components/TouchableWithoutFeedbackDemo';
 import ViewDemo from './src/components/ViewDemo';
 import TSDemo from './src/ts/TSDemo';
+import RootView from './src/context/RootView';
+import InfoView from './src/hoc/InfoView';
 
 function App(): JSX.Element {
 
@@ -92,7 +94,9 @@ function App(): JSX.Element {
       {/* <TestToastAndroid /> */}
       {/* <TestTransform /> */}
       {/* <TestKeyboard /> */}
-      <TSDemo />
+      {/* <TSDemo /> */}
+      {/* <RootView /> */}
+      <InfoView />
     </View>
   );
 }
