@@ -42,6 +42,7 @@ import ViewDemo from './src/components/ViewDemo';
 import TSDemo from './src/ts/TSDemo';
 import RootView from './src/context/RootView';
 import InfoView from './src/hoc/InfoView';
+import MemoPage from './src/memo/MemoPage';
 
 function App(): JSX.Element {
 
@@ -96,7 +97,8 @@ function App(): JSX.Element {
       {/* <TestKeyboard /> */}
       {/* <TSDemo /> */}
       {/* <RootView /> */}
-      <InfoView />
+      {/* <InfoView /> */}
+      <MemoPage />
     </View>
   );
 }
