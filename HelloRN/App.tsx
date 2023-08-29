@@ -43,6 +43,7 @@ import TSDemo from './src/ts/TSDemo';
 import RootView from './src/context/RootView';
 import InfoView from './src/hoc/InfoView';
 import MemoPage from './src/memo/MemoPage';
+import CustomListNativeWind from './src/nativewind/CustomListNativeWind';
 
 function App(): JSX.Element {
 
@@ -98,7 +99,8 @@ function App(): JSX.Element {
       {/* <TSDemo /> */}
       {/* <RootView /> */}
       {/* <InfoView /> */}
-      <MemoPage />
+      {/* <MemoPage /> */}
+      <CustomListNativeWind />
     </View>
   );
 }
