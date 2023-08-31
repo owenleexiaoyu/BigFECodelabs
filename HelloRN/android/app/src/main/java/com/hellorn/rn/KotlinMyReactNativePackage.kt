@@ -7,10 +7,10 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ReactShadowNode
 import com.facebook.react.uimanager.ViewManager
 
-open class MyReactNativePackage: ReactPackage {
+class KotlinMyReactNativePackage: ReactPackage {
     override fun createNativeModules(p0: ReactApplicationContext): MutableList<NativeModule> {
         return mutableListOf(
-            MyNativeModule()
+            KotlinAppModule(p0)
         )
     }
 

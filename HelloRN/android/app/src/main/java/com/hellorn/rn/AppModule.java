@@ -24,6 +24,8 @@ public class AppModule extends ReactContextBaseJavaModule {
     public String getName() {
         return "App";
     }
+//
+//    private static final Person person = new Person("张三", 12, true);
 
     @Nullable
     @Override
@@ -32,6 +34,7 @@ public class AppModule extends ReactContextBaseJavaModule {
         map.put("version_name", BuildConfig.VERSION_NAME);
         map.put("version_code", BuildConfig.VERSION_CODE);
         map.put("debug", BuildConfig.DEBUG);
+//        map.put("person", person);
         return map;
     }
 

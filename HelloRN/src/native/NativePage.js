@@ -17,7 +17,7 @@ export default () => {
                 //     console.log(e);
                 // });
                 // App?.openGallery();
-                const { version_name, version_code, debug } = App;
+                const { version_name, version_code, debug } = App.getConstants();
                 console.log(`version_name = ${version_name}, version_code = ${version_code}, debug = ${debug}`);
             }}
             />
