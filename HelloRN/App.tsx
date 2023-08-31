@@ -45,6 +45,7 @@ import InfoView from './src/hoc/InfoView';
 import MemoPage from './src/memo/MemoPage';
 import CustomListNativeWind from './src/nativewind/CustomListNativeWind';
 import RefDemo from './src/ref/RefDemo';
+import NativePage from './src/native/NativePage';
 
 function App(): JSX.Element {
 
@@ -101,7 +102,8 @@ function App(): JSX.Element {
       {/* <RootView /> */}
       {/* <InfoView /> */}
       {/* <MemoPage /> */}
-      <RefDemo />
+      {/* <RefDemo /> */}
+      <NativePage />
       {/* <CustomListNativeWind /> */}
     </View>
   );
