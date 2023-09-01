@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Button, NativeModules } from "react-native";
 import App from "./AppModule";
+import NativeInfoView from "./NativeInfoView";
 
 export default () => {
 
@@ -21,6 +22,7 @@ export default () => {
                 console.log(`version_name = ${version_name}, version_code = ${version_code}, debug = ${debug}`);
             }}
             />
+            <NativeInfoView />
         </View>
     );
 }
