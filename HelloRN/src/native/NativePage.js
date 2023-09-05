@@ -22,7 +22,8 @@ export default () => {
                 console.log(`version_name = ${version_name}, version_code = ${version_code}, debug = ${debug}`);
             }}
             />
-            <NativeInfoView />
+            <NativeInfoView 
+            />
         </View>
     );
 }
