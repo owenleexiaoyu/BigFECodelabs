@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ViewProps, requireNativeComponent } from "react-native";
-import { imageUrl } from "../constants/Url"
+import { largeImageUrl } from "../constants/Url"
 
 const NativeInfoView = requireNativeComponent<NativeInfoViewType>("NativeInfoView");
 
@@ -9,15 +9,19 @@ type NativeInfoViewType = ViewProps | {
     avatar: string;
     name: string;
     desc: string;
+    onShapeChange: (e: any) => void;
 }
 
 export default () => {
     return (
         <NativeInfoView 
             style={styles.infoView}
-            avatar={imageUrl}
+            avatar={largeImageUrl}
             name="张三"
             desc="唱跳 RAP 篮球"
+            onShapeChange={(e) => {
+                console.log(e.nativeEvent.shape);
+            }}
         />
     );
 }

@@ -1,5 +1,6 @@
 package com.hellorn.ui
 
+import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
@@ -24,5 +25,14 @@ class InfoViewManager: SimpleViewManager<InfoView>() {
     @ReactProp(name = "desc")
     fun setDesc(view: InfoView, desc: String) {
         view.setDesc(desc)
+    }
+
+    override fun getExportedCustomBubblingEventTypeConstants(): MutableMap<String, Any>? {
+        return MapBuilder.builder<String, Any>()
+            .put(
+                "onShapeChange", MapBuilder.of(
+                    "phasedRegistrationNames", MapBuilder.of("bubbled", "onShapeChange")
+                )
+            ).build()
     }
 }
