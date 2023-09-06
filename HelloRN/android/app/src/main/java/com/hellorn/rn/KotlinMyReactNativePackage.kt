@@ -4,6 +4,7 @@ import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
+import com.hellorn.ui.InfoViewGroupManager
 import com.hellorn.ui.InfoViewManager
 
 class KotlinMyReactNativePackage: ReactPackage {
@@ -15,7 +16,8 @@ class KotlinMyReactNativePackage: ReactPackage {
 
     override fun createViewManagers(p0: ReactApplicationContext): MutableList<ViewManager<*, *>> {
         return mutableListOf(
-            InfoViewManager()
+            InfoViewManager(),
+            InfoViewGroupManager()
         )
     }
 }

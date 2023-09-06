@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, Button, NativeModules } from "react-native";
 import App from "./AppModule";
 import NativeInfoView from "./NativeInfoView";
+import NativeInfoViewGroup from "./NativeInfoViewGroup";
 
 export default () => {
 
@@ -22,8 +23,8 @@ export default () => {
                 console.log(`version_name = ${version_name}, version_code = ${version_code}, debug = ${debug}`);
             }}
             />
-            <NativeInfoView 
-            />
+            {/* <NativeInfoView /> */}
+            <NativeInfoViewGroup />
         </View>
     );
 }
