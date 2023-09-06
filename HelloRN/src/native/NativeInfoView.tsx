@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, View, ViewProps, requireNativeComponent } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { StyleSheet, View, ViewProps, requireNativeComponent, findNodeHandle, UIManager } from "react-native";
 import { largeImageUrl } from "../constants/Url"
 
 const NativeInfoView = requireNativeComponent<NativeInfoViewType>("NativeInfoView");
@@ -13,8 +13,25 @@ type NativeInfoViewType = ViewProps | {
 }
 
 export default () => {
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        setTimeout(() => {
+            sendCommand("setShape", ["round"]);
+        }, 3000);
+    }, []);
+
+    const sendCommand = (command: string, params: any[]) => {
+        const viewId = findNodeHandle(ref.current);
+        // @ts-ignore
+        const commands = UIManager.NativeInfoView.Commands[command].toString();
+        UIManager.dispatchViewManagerCommand(viewId, commands, params);
+    }
+
     return (
-        <NativeInfoView 
+        <NativeInfoView
+            ref={ref} 
             style={styles.infoView}
             avatar={largeImageUrl}
             name="张三"

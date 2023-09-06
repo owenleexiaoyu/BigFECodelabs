@@ -70,4 +70,11 @@ class InfoView(context: Context): LinearLayout(context) {
     fun setDesc(desc: String) {
         tvDesc?.text = desc
     }
+
+    fun setShape(shape: String) {
+        this.shape = shape
+        this.url?.let {
+            loadAvatar(it)
+        }
+    }
 }
