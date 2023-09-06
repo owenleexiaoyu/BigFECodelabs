@@ -37,7 +37,9 @@ export default () => {
             name="张三"
             desc="唱跳 RAP 篮球"
             onShapeChange={(e) => {
+                console.log(e.nativeEvent);
                 console.log(e.nativeEvent.shape);
+                console.log("\n");
             }}
         />
     );

@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.facebook.react.bridge.Arguments
@@ -58,7 +59,7 @@ class InfoView(context: Context): LinearLayout(context) {
             Glide.with(this)
                 .load(url)
                 .placeholder(R.drawable.icon_avatar)
-                .transform(if (this.shape == "circle") CircleCrop() else RoundedCorners(40))
+                .transform(CenterCrop(), if (this.shape == "circle") CircleCrop() else RoundedCorners(50))
                 .into(it)
         }
     }
