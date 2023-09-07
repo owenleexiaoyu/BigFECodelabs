@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.rnredbook"
+    namespace "life.lixiaoyu.rnredbook"
     defaultConfig {
-        applicationId "com.rnredbook"
+        applicationId "life.lixiaoyu.rnredbook"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
