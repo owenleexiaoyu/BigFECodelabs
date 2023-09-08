@@ -46,8 +46,19 @@ import MemoPage from './src/memo/MemoPage';
 import CustomListNativeWind from './src/nativewind/CustomListNativeWind';
 import RefDemo from './src/ref/RefDemo';
 import NativePage from './src/native/NativePage';
+import NavigationPage from './src/navigation/NavigationPage';
+import HomePage from './src/modules/app/HomePage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import FlexLayoutPage from './src/modules/flex_practice/FlexLayoutPage';
+import RNComponentsPage from './src/components/RNComponentsPage';
+import PageView from './src/context/PageView';
+import RNApisPage from './src/components/RNApisPage';
+
+const Stack = createStackNavigator();
 
 function App(): JSX.Element {
+
 
   // chapter 6.5
   // // 设置了一个 state，是否需要展示 ClassView，默认为 true
@@ -103,17 +114,80 @@ function App(): JSX.Element {
       {/* <InfoView /> */}
       {/* <MemoPage /> */}
       {/* <RefDemo /> */}
-      <NativePage />
+      {/* <NativePage /> */}
+      {/* <NavigationPage /> */}
+      {/* <HomePage /> */}
       {/* <CustomListNativeWind /> */}
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName='home'
+        >
+          <Stack.Screen 
+            name="home" 
+            component={HomePage}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen 
+            name="flex_layout" 
+            component={FlexLayoutPage}
+          />
+          <Stack.Screen 
+            name="rn_components" 
+            component={RNComponentsPage}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen 
+            name="rn_apis" 
+            component={RNApisPage}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen 
+            name="typescript" 
+            component={TSDemo}
+          />
+          <Stack.Screen 
+            name="context" 
+            component={RootView}
+          />
+          <Stack.Screen 
+            name="hoc" 
+            component={InfoView}
+          />
+          <Stack.Screen 
+            name="memo" 
+            component={MemoPage}
+          />
+          <Stack.Screen 
+            name="ref" 
+            component={RefDemo}
+          />
+          <Stack.Screen 
+            name="nativewind" 
+            component={CustomListNativeWind}
+          />
+          <Stack.Screen 
+            name="navigation" 
+            component={NavigationPage}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    width: "100%",
+    height: "100%",
     backgroundColor: 'white',
   },
 });
