@@ -1,9 +1,15 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { TransitionPresets, createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import {
   SafeAreaView,
   StatusBar,
   View,
 } from 'react-native';
+import WelcomePage from './src/modules/welcome/WelcomePage';
+import LoginPage from './src/modules/login/LoginPage';
+
+const Stack = createStackNavigator();
 
 function App(): JSX.Element {
 
@@ -14,7 +20,27 @@ function App(): JSX.Element {
         backgroundColor={"white"}
       />
       <View className='w-full h-full bg-white'>
-
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName='welcome'
+            >
+            <Stack.Screen 
+              name="welcome"
+              component={WelcomePage}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen 
+              name="login"
+              component={LoginPage}
+              options={{
+                headerShown: false,
+                ...TransitionPresets.SlideFromRightIOS
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </View>
     </SafeAreaView>
   );
