@@ -15,11 +15,29 @@ import PublishEmptyBottomTab from "../publish/PublishEmptyBottomTab";
 // import icon_tab_mine_normal from "../../assets/icon_tab_mine_normal.png";
 // import icon_tab_mine_selected from "../../assets/icon_tab_mine_selected.png";
 import icon_tab_publish from "../../assets/icon_tab_publish.png";
+import { ImagePickerResponse, launchImageLibrary } from "react-native-image-picker";
 
 const BottomTab = createBottomTabNavigator();
 
 
 export default () => {
+
+    const onPublishPress = () => {
+        launchImageLibrary({
+            mediaType: "photo",
+            quality: 1,
+            includeBase64: true,
+        }, (res: ImagePickerResponse) => {
+            const { assets } = res;
+            if (!assets?.length) {
+                return;
+            }
+            const first = assets[0];
+            const { width, height, fileName, fileSize, uri } = first;
+            console.log(`width=${width}, height=${height}, fileSize=${fileSize}, fileName=${fileName}`);
+            console.log(`uri=${uri}`);
+        });
+    }
 
     const RedBookBottomTab = (props: BottomTabBarProps) => {
         const { state, descriptors, navigation } = props;
@@ -34,9 +52,8 @@ export default () => {
                         <TouchableOpacity 
                             className="h-full flex-1 justify-center items-center"
                             activeOpacity={0.5}
-                            onPress={() => {
-                                // TODO 发布
-                            }}
+                            onPress={onPublishPress}
+                            key={`${title}-${i}`}
                             >
                             <Image 
                                 className="w-14 h-10"
@@ -53,6 +70,7 @@ export default () => {
                         onPress={() => {
                             navigation.navigate(route.name);
                         }}
+                        key={`${title}-${i}`}
                         >
                         <Text 
                             className={
