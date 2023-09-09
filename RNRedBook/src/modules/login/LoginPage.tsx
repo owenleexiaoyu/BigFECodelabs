@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ToastAndroid } from "react-native";
 import icon_main_logo from "../../assets/icon_main_logo.png";
 import icon_wx_small from "../../assets/icon_wx_small.png";
 import icon_arrow from "../../assets/icon_arrow.png";
@@ -16,12 +16,17 @@ import icon_wx from "../../assets/icon_wx.png";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { TextInput } from "react-native-gesture-handler";
+import { formatPhone } from "../../utils/StringUtil";
 
 export default () => {
 
+    const navigation = useNavigation<StackNavigationProp<any>>();
+
     const [type, setType] = useState<"quick" | "password">("quick");
     const [consented, setConsented] = useState(false);
-
+    const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const renderConsentLayout = () => {
         return (
@@ -73,9 +78,7 @@ export default () => {
                 <TouchableOpacity
                     className="flex-row items-center mb-20"
                     onPress={() => {
-                        if (type === "quick") {
-                            setType("password");
-                        }
+                        setType("password");
                     }}
                 >
                     <Text className="text-base text-black vertical-align-center">其他登录方式</Text>
@@ -90,14 +93,13 @@ export default () => {
     }
 
     const renderPasswordLogin = () => {
+        const canLogin = phone?.length === 13 && password?.length >= 6;
         return (
             <View className="w-full h-full flex-col bg-white px-12 py-8 items-center">
                 <TouchableOpacity
                     className="absolute top-6 left-6"
                     onPress={() => {
-                        if (type === "password") {
-                            setType("quick");
-                        }
+                        setType("quick");
                     }}
                     >
                     <Image 
@@ -117,6 +119,12 @@ export default () => {
                         className="w-full h-16 ml-4 text-2xl"
                         placeholder="请输入手机号码"
                         placeholderTextColor={"#D0D0D0"}
+                        keyboardType="number-pad"
+                        maxLength={13}
+                        value={phone}
+                        onChangeText={(text: string) => {
+                            setPhone(formatPhone(text));
+                        }}
                         />
                 </View>
                 <View className="w-full h-16 flex-row items-center border-b border-gray-300 mt-2">
@@ -124,12 +132,22 @@ export default () => {
                         className="flex-1 h-16 text-2xl"
                         placeholder="输入密码"
                         placeholderTextColor={"#D0D0D0"}
+                        value={password}
+                        onChangeText={(text) => setPassword(text)}
+                        secureTextEntry={!showPassword}
                         />
-                    <Image 
-                        source={icon_eye_close}
-                        className="w-8 h-8 ml-2"
-                        tintColor={"#D0D0D0"}
-                        />
+                    <TouchableOpacity
+                        onPress={() => {
+                            setShowPassword(!showPassword);
+                        }}
+                        activeOpacity={0.5}
+                        >
+                        <Image 
+                            source={showPassword ? icon_eye_open : icon_eye_close}
+                            className="w-8 h-8 ml-2"
+                            tintColor={"#D0D0D0"}
+                            />
+                    </TouchableOpacity>
                 </View>
                 <View className="w-full flex-row mt-4 justify-between">
                     <TouchableOpacity className="h-6 flex-row items-center">
@@ -144,8 +162,18 @@ export default () => {
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity 
-                    className="w-full h-14 flex-row rounded-full bg-gray-200 items-center justify-center mt-6 mb-4"
-                    activeOpacity={0.5}
+                    className={`w-full h-14 flex-row rounded-full ${canLogin ? "bg-red-500" : "bg-gray-200"} items-center justify-center mt-6 mb-4`}
+                    activeOpacity={canLogin ? 0.5 : 1}
+                    onPress={() => {
+                        if (!canLogin) {
+                            return;
+                        }
+                        if (!consented) {
+                            ToastAndroid.show("请先同意协议及条款", ToastAndroid.SHORT);
+                            return;
+                        }
+                        navigation.replace("home");
+                    }}
                     >
                     <Text className="text-xl text-white">登录</Text>
                 </TouchableOpacity>

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import WelcomePage from './src/modules/welcome/WelcomePage';
 import LoginPage from './src/modules/login/LoginPage';
+import HomePage from './src/modules/home/HomePage';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,14 @@ function App(): JSX.Element {
             <Stack.Screen 
               name="login"
               component={LoginPage}
+              options={{
+                headerShown: false,
+                ...TransitionPresets.SlideFromRightIOS
+              }}
+            />
+            <Stack.Screen 
+              name="home"
+              component={HomePage}
               options={{
                 headerShown: false,
                 ...TransitionPresets.SlideFromRightIOS
