@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import WelcomePage from './src/modules/welcome/WelcomePage';
 import LoginPage from './src/modules/login/LoginPage';
-import HomePage from './src/modules/home/HomePage';
+import MainPage from './src/modules/main/MainPage';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +23,7 @@ function App(): JSX.Element {
       <View className='w-full h-full bg-white'>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName='welcome'
+            initialRouteName='main'
             >
             <Stack.Screen 
               name="welcome"
@@ -41,8 +41,8 @@ function App(): JSX.Element {
               }}
             />
             <Stack.Screen 
-              name="home"
-              component={HomePage}
+              name="main"
+              component={MainPage}
               options={{
                 headerShown: false,
                 ...TransitionPresets.SlideFromRightIOS

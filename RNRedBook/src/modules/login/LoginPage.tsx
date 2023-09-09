@@ -172,7 +172,7 @@ export default () => {
                             ToastAndroid.show("请先同意协议及条款", ToastAndroid.SHORT);
                             return;
                         }
-                        navigation.replace("home");
+                        navigation.replace("main");
                     }}
                     >
                     <Text className="text-xl text-white">登录</Text>
