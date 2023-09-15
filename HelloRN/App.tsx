@@ -54,6 +54,7 @@ import FlexLayoutPage from './src/modules/flex_practice/FlexLayoutPage';
 import RNComponentsPage from './src/components/RNComponentsPage';
 import PageView from './src/context/PageView';
 import RNApisPage from './src/components/RNApisPage';
+import BottomTabPage from './src/navigation/BottomTabPage';
 
 const Stack = createStackNavigator();
 
@@ -174,6 +175,13 @@ function App(): JSX.Element {
           <Stack.Screen 
             name="navigation" 
             component={NavigationPage}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen 
+            name="bottom_tab_navigation" 
+            component={BottomTabPage}
             options={{
               headerShown: false,
             }}

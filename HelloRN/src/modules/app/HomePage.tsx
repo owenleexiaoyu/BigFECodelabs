@@ -41,8 +41,12 @@ const dataList = [
         "route": "nativewind"
     },
     {
-        "name": "React Navigation",
+        "name": "React Stack Navigation",
         "route": "navigation"
+    },
+    {
+        "name": "Bottom Tab Navigation",
+        "route": "bottom_tab_navigation"
     },
 ];
 
