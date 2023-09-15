@@ -6,14 +6,6 @@ import ShopPage from "../shop/ShopPage";
 import MessagePage from "../message/MessagePage";
 import MyProfilePage from "../mine/MyProfilePage";
 import PublishEmptyBottomTab from "../publish/PublishEmptyBottomTab";
-// import icon_tab_home_normal from "../../assets/icon_tab_home_normal.png";
-// import icon_tab_home_selected from "../../assets/icon_tab_home_selected.png";
-// import icon_tab_shop_normal from "../../assets/icon_tab_shop_normal.png";
-// import icon_tab_shop_selected from "../../assets/icon_tab_shop_selected.png";
-// import icon_tab_message_normal from "../../assets/icon_tab_message_normal.png";
-// import icon_tab_message_selected from "../../assets/icon_tab_message_selected.png";
-// import icon_tab_mine_normal from "../../assets/icon_tab_mine_normal.png";
-// import icon_tab_mine_selected from "../../assets/icon_tab_mine_selected.png";
 import icon_tab_publish from "../../assets/icon_tab_publish.png";
 import { ImagePickerResponse, launchImageLibrary } from "react-native-image-picker";
 
@@ -97,14 +89,6 @@ export default () => {
                     options={{
                         headerShown: false,
                         title: "首页",
-                        // tabBarIcon: ({focused}) => {
-                        //     return (
-                        //         <Image 
-                        //             className="w-6 h-6"
-                        //             source={focused ? icon_tab_home_selected : icon_tab_home_normal} 
-                        //             />
-                        //         );
-                        // },
                     }}
                     />
                 <BottomTab.Screen 
@@ -113,14 +97,6 @@ export default () => {
                     options={{
                         headerShown: false,
                         title: "购物",
-                        // tabBarIcon: ({focused}) => {
-                        //     return (
-                        //         <Image 
-                        //             className="w-6 h-6"
-                        //             source={focused ? icon_tab_shop_selected : icon_tab_shop_normal} 
-                        //             />
-                        //         );
-                        // },
                     }}
                     />
                 <BottomTab.Screen 
@@ -133,14 +109,6 @@ export default () => {
                     options={{
                         headerShown: false,
                         title: "消息",
-                        // tabBarIcon: ({focused}) => {
-                        //     return (
-                        //         <Image 
-                        //             className="w-6 h-6"
-                        //             source={focused ? icon_tab_message_selected : icon_tab_message_normal} 
-                        //             />
-                        //         );
-                        // },
                     }}
                     />
                 <BottomTab.Screen 
@@ -149,14 +117,6 @@ export default () => {
                     options={{
                         headerShown: false,
                         title: "我",
-                        // tabBarIcon: ({focused}) => {
-                        //     return (
-                        //         <Image 
-                        //             className="w-6 h-6"
-                        //             source={focused ? icon_tab_mine_selected : icon_tab_mine_normal} 
-                        //             />
-                        //         );
-                        // },
                     }}
                     />
             </BottomTab.Navigator>
