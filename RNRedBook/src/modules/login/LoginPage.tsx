@@ -17,6 +17,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { TextInput } from "react-native-gesture-handler";
 import { formatPhone } from "../../utils/StringUtil";
+import { request } from "../../utils/Request";
 
 export default () => {
 
@@ -92,6 +93,28 @@ export default () => {
         );
     }
 
+    const onLoginPress = async () => {
+        const canLogin = phone?.length === 13 && password?.length >= 6;
+        if (!canLogin) {
+            return;
+        }
+        if (!consented) {
+            ToastAndroid.show("请先同意协议及条款", ToastAndroid.SHORT);
+            return;
+        }
+        // navigation.replace("main");
+        const params = {
+            name: "dagongjue",
+            pwd: "123456",
+        };
+        try {
+            const { data } = await request("login", params);
+            console.log(`data=${JSON.stringify(data)}`);
+        } catch (e) {
+            console.log(`handle exception: ${e}`);
+        }
+    }
+
     const renderPasswordLogin = () => {
         const canLogin = phone?.length === 13 && password?.length >= 6;
         return (
@@ -164,16 +187,7 @@ export default () => {
                 <TouchableOpacity 
                     className={`w-full h-14 flex-row rounded-full ${canLogin ? "bg-red-500" : "bg-gray-200"} items-center justify-center mt-6 mb-4`}
                     activeOpacity={canLogin ? 0.5 : 1}
-                    onPress={() => {
-                        if (!canLogin) {
-                            return;
-                        }
-                        if (!consented) {
-                            ToastAndroid.show("请先同意协议及条款", ToastAndroid.SHORT);
-                            return;
-                        }
-                        navigation.replace("main");
-                    }}
+                    onPress={onLoginPress}
                     >
                     <Text className="text-xl text-white">登录</Text>
                 </TouchableOpacity>
