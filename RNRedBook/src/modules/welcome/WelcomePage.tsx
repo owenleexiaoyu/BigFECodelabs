@@ -3,6 +3,7 @@ import { View, Text, Image } from "react-native";
 import icon_main_logo from "../../assets/icon_main_logo.png";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import UserStore from "../../stores/UserStore";
 
 export default () => {
 
@@ -23,10 +24,18 @@ export default () => {
         }
     }, []);
 
-    // 监听 countDown 的变化，如果 countDown 到 0，跳转到 Login 页面
+    // 监听 countDown 的变化，如果 countDown 到 0，检查登录状态
+    // 如果已经登录，则跳转到 Mian 页面
+    // 如果没有，则跳转到 Login 页面
     useEffect(() => {
         if (countDown == 0) {
-            navigation.replace("login");
+            UserStore.getUserInfo().then(value => {
+                if (value) {
+                    navigation.replace("main");
+                } else {
+                    navigation.replace("login");
+                }
+            });
         }
     }, [countDown]);
 
