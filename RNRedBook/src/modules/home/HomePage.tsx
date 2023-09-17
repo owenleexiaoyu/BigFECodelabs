@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { View, Text, StatusBar, Image } from "react-native";
 import HomeStore from "../../stores/HomeStore";
 import { Dimensions } from "react-native";
-import icon_heart_empty from "../../assets/icon_heart_empty.png"
 import FlowList from "../../components/flowlist/FlowList";
 import ResizeImage from "../../components/ResizeImage";
+import Heart from "../../components/Heart";
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
 
@@ -34,9 +34,8 @@ export default observer(() => {
                         />
                     <Text className="text-sm text-gray-300 ml-1">{item.userName}</Text>
                     <View className="flex-1"/>
-                    <Image 
-                        className="w-4 h-4"
-                        source={icon_heart_empty} />
+                    <Heart
+                        favorite={item.isFavorite} />
                     <Text className="text-sm text-gray-300 ml-1">{item.favoriteCount}</Text>
                 </View>
             </View>
