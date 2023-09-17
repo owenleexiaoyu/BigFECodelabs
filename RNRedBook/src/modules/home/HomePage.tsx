@@ -1,9 +1,11 @@
 import { observer, useLocalObservable } from "mobx-react";
 import React, { useEffect } from "react";
-import { View, Text, FlatList, StatusBar, Image } from "react-native";
+import { View, Text, StatusBar, Image } from "react-native";
 import HomeStore from "../../stores/HomeStore";
 import { Dimensions } from "react-native";
 import icon_heart_empty from "../../assets/icon_heart_empty.png"
+import FlowList from "../../components/flowlist/FlowList";
+import ResizeImage from "../../components/ResizeImage";
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
 
@@ -23,9 +25,7 @@ export default observer(() => {
                     width: (SCREEN_WIDTH - 18) / 2,
                 }}
                 >
-                <Image 
-                    className="w-full h-60"
-                    source={{ uri: item.image }}/>
+                <ResizeImage uri={item.image}/>
                 <Text className="text-black text-base font-bold px-2 py-2">{item.title}</Text>
                 <View className="w-full flex-row px-2 pb-2 items-center">
                     <Image 
@@ -43,9 +43,15 @@ export default observer(() => {
         );
     }
 
-    const Footer = () => {
+    const LoadingMoreFooter = () => {
         return (
-            <Text className="w-full text-base my-4 text-gray-500 text-center align-center">没有更多数据</Text>
+            <Text className="w-full text-base my-4 text-gray-500 text-center align-center">正在加载更多数据...</Text>
+        );
+    }
+
+    const NoMoreDataFooter = () => {
+        return (
+            <Text className="w-full text-base my-4 text-gray-500 text-center align-center">没有更多数据了</Text>
         );
     }
 
@@ -54,16 +60,16 @@ export default observer(() => {
             <StatusBar 
                 backgroundColor={"#F0F0F0"}
                 />
-            <FlatList 
+            <FlowList 
                 data={store.homeList}
-                keyExtractor={(item, index) => `${item.id}-${item.title}-${index}`}
+                keyExtractor={(item: ArticleSimple, index: number) => `${item.id}-${item.title}-${index}`}
                 renderItem={renderItem}
                 numColumns={2}
                 refreshing={store.refreshing}
                 onRefresh={store.refreshHomeList}
-                onEndReachedThreshold={0.1}
                 onEndReached={store.loadMoreHomeList}
-                ListFooterComponent={<Footer />}
+                ListFooterComponent={ store.loadingMore ? <LoadingMoreFooter /> : <NoMoreDataFooter /> }
+                
             />
         </View>
     );
