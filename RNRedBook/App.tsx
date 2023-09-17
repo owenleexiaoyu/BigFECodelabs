@@ -23,7 +23,7 @@ function App(): JSX.Element {
       <View className='w-full h-full bg-white'>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName='welcome'
+            initialRouteName='main'
             >
             <Stack.Screen 
               name="welcome"
