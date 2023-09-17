@@ -1,11 +1,13 @@
 import { observer, useLocalObservable } from "mobx-react";
 import React, { useEffect } from "react";
-import { View, Text, StatusBar, Image } from "react-native";
+import { View, Text, StatusBar, Image, TouchableOpacity } from "react-native";
 import HomeStore from "../../stores/HomeStore";
 import { Dimensions } from "react-native";
 import FlowList from "../../components/flowlist/FlowList";
 import ResizeImage from "../../components/ResizeImage";
 import Heart from "../../components/Heart";
+import TopBar from "../../components/TopBar";
+
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
 
@@ -55,10 +57,11 @@ export default observer(() => {
     }
 
     return (
-        <View className="w-full h-full flex-col pt-1.5">
+        <View className="w-full h-full flex-col">
             <StatusBar 
-                backgroundColor={"#F0F0F0"}
+                backgroundColor={"white"}
                 />
+            <TopBar />
             <FlowList 
                 data={store.homeList}
                 keyExtractor={(item: ArticleSimple, index: number) => `${item.id}-${item.title}-${index}`}
@@ -68,8 +71,7 @@ export default observer(() => {
                 onRefresh={store.refreshHomeList}
                 onEndReached={store.loadMoreHomeList}
                 ListFooterComponent={ store.loadingMore ? <LoadingMoreFooter /> : <NoMoreDataFooter /> }
-                
-            />
+                />
         </View>
     );
 });
