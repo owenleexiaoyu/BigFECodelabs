@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, Image, Text } from "react-native";
-import icon_daily from "../assets/icon_daily.png";
-import icon_search from "../assets/icon_search.png";
+import icon_daily from "../../../assets/icon_daily.png";
+import icon_search from "../../../assets/icon_search.png";
 
 type SelectRange = 0 | 1 | 2;
 
@@ -11,7 +11,7 @@ export default () => {
     const [tabIndex, setTabIndex] = useState<SelectRange>(1);
 
     return (
-        <View className="w-full h-12 flex-row items-center bg-white mb-1.5">
+        <View className="w-full h-12 flex-row items-center bg-white border-b-gray-300 border-b">
             <TouchableOpacity 
                 className="w-12 h-12 flex-row justify-center items-center mx-2"
                 activeOpacity={0.5}

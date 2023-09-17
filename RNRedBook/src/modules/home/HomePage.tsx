@@ -1,22 +1,29 @@
 import { observer, useLocalObservable } from "mobx-react";
-import React, { useEffect } from "react";
-import { View, Text, StatusBar, Image, TouchableOpacity } from "react-native";
-import HomeStore from "../../stores/HomeStore";
+import React, { useEffect, useRef } from "react";
+import { View, Text, StatusBar, Image } from "react-native";
+import HomeListStore from "./HomeListStore";
 import { Dimensions } from "react-native";
 import FlowList from "../../components/flowlist/FlowList";
 import ResizeImage from "../../components/ResizeImage";
 import Heart from "../../components/Heart";
-import TopBar from "../../components/TopBar";
+import TopBar from "./components/TopBar";
+import { ChannelStore } from "./ChannelStore";
+import ChannelList from "./components/ChannelList";
+import ChannelModal, { ChannelModalRef } from "./components/ChannelModal";
 
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
 
 export default observer(() => {
 
-    const store = useLocalObservable(() => new HomeStore());
+    const listStore = useLocalObservable(() => new HomeListStore());
+    const channelStore = useLocalObservable(() => new ChannelStore());
+
+    const channelModalRef = useRef<ChannelModalRef>(null);
 
     useEffect(() => {
-        store.refreshHomeList();
+        listStore.refreshHomeList();
+        channelStore.getChannelList();
     }, []);
 
     const renderItem = ({item, index}: {item: ArticleSimple, index: number}) => {
@@ -56,6 +63,8 @@ export default observer(() => {
         );
     }
 
+    const myChannelList = channelStore.channelList.filter(item => item.isAdd);
+
     return (
         <View className="w-full h-full flex-col">
             <StatusBar 
@@ -63,14 +72,25 @@ export default observer(() => {
                 />
             <TopBar />
             <FlowList 
-                data={store.homeList}
+                data={listStore.homeList}
                 keyExtractor={(item: ArticleSimple, index: number) => `${item.id}-${item.title}-${index}`}
                 renderItem={renderItem}
                 numColumns={2}
-                refreshing={store.refreshing}
-                onRefresh={store.refreshHomeList}
-                onEndReached={store.loadMoreHomeList}
-                ListFooterComponent={ store.loadingMore ? <LoadingMoreFooter /> : <NoMoreDataFooter /> }
+                refreshing={listStore.refreshing}
+                onRefresh={listStore.refreshHomeList}
+                onEndReached={listStore.loadMoreHomeList}
+                ListFooterComponent={ listStore.loadingMore ? <LoadingMoreFooter /> : <NoMoreDataFooter /> }
+                ListHeaderComponent={<ChannelList 
+                    channelList={myChannelList} 
+                    onArrowPress={() => {
+                        console.log("这里执行到了");
+                        channelModalRef.current?.show();
+                    }}
+                    />}
+                />
+            <ChannelModal
+                ref={channelModalRef}
+                channelList={channelStore.channelList}
                 />
         </View>
     );

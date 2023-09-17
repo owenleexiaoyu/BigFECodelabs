@@ -1,9 +1,9 @@
 import { action, makeObservable, observable } from "mobx";
-import { request } from "../utils/Request";
+import { request } from "../../utils/Request";
 
 const PAGE_SIZE = 10;
 
-export default class HomeStore {
+export default class HomeListStore {
 
     page: number = 1;
 
