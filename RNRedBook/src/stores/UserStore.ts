@@ -1,6 +1,7 @@
 import { request } from "../utils/Request"
 import { flow } from "mobx";
 import { load, save } from "../utils/Storage";
+import Loading from "../components/widget/Loading";
 
 const KEY_USER_INFO = "user_info"
 
@@ -45,6 +46,7 @@ class UserStore {
             pwd: pwd,
         }
         try {
+            Loading.show();
             const { data } = yield request("login", params);
             console.log(`UserStore ===> login result: ${JSON.stringify(data)}`);
             if (data) {
@@ -58,6 +60,8 @@ class UserStore {
         } catch (error) {
             console.log(error);
             callback?.(false);
+        } finally {
+            Loading.hide();
         }
     });
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, ToastAndroid } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import icon_main_logo from "../../assets/icon_main_logo.png";
 import icon_wx_small from "../../assets/icon_wx_small.png";
 import icon_arrow from "../../assets/icon_arrow.png";
@@ -18,6 +18,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { TextInput } from "react-native-gesture-handler";
 import { formatPhone, replaceBlank } from "../../utils/StringUtil";
 import UserStore from "../../stores/UserStore";
+import Toast from "../../components/widget/Toast";
 
 export default () => {
 
@@ -64,7 +65,7 @@ export default () => {
                     className="w-full h-14 bg-red-500 rounded-full justify-center items-center mb-4"
                     activeOpacity={0.7}
                     onPress={() => {
-                        ToastAndroid.show("暂不支持一键登录，请点击其他登录方式使用手机号密码进行登录", ToastAndroid.SHORT);
+                        Toast.show("暂不支持一键登录，请点击其他登录方式使用手机号密码进行登录");
                     }}
                     >
                     <Text className="text-lg text-white">一键登录</Text>
@@ -73,7 +74,7 @@ export default () => {
                     className="w-full h-14 flex-row bg-green-500 rounded-full justify-center items-center mb-5"
                     activeOpacity={0.7}
                     onPress={() => {
-                        ToastAndroid.show("暂不支持微信登录，请点击其他登录方式使用手机号密码进行登录", ToastAndroid.SHORT);
+                        Toast.show("暂不支持微信登录，请点击其他登录方式使用手机号密码进行登录");
                     }}
                     >
                     <Image
@@ -105,14 +106,14 @@ export default () => {
             return;
         }
         if (!consented) {
-            ToastAndroid.show("请先同意协议及条款", ToastAndroid.SHORT);
+            Toast.show("请先同意协议及条款");
             return;
         }
         UserStore.requestLogin(replaceBlank(phone), password, (success) => {
             if (success) {
                 navigation.replace("main");
             } else {
-                ToastAndroid.show("登录失败，请检查用户名和密码", ToastAndroid.SHORT);
+                Toast.show("登录失败，请检查用户名和密码");
             }
         });
     }
