@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
-import { load } from "../../utils/Storage";
+import { load, save } from "../../utils/Storage";
 
 
 export class ChannelStore {
@@ -29,6 +29,10 @@ export class ChannelStore {
         } else {
             this.setChannelList(DEFAULT_CATEGORY_LIST);
         }
+    }
+
+    saveChannelList = async (list: Channel[]) => {
+        save("channel_list", JSON.stringify(list));
     }
 }
 

@@ -1,15 +1,18 @@
-import React, { forwardRef, useImperativeHandle, useState } from "react";
-import { FlatList, Image, Modal, Text, TouchableOpacity, View, Dimensions } from "react-native";
+import React, { forwardRef, useEffect, useImperativeHandle, useState } from "react";
+import { FlatList, Image, Modal, Text, TouchableOpacity, View, Dimensions, ScrollView } from "react-native";
 
 
 import icon_arrow from "../../../assets/icon_arrow.png";
 import icon_close_modal from "../../../assets/icon_close_modal.png";
+import icon_delete from "../../../assets/icon_delete.png";
+
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
 const ITEM_WIDTH = (SCREEN_WIDTH - 60) / 4;
 
 type Props = {
     channelList: Channel[];
+    onSaveChannel?: (channelList: Channel[]) => void;
 }
 
 export interface ChannelModalRef {
@@ -20,6 +23,9 @@ export interface ChannelModalRef {
 export default forwardRef((props: Props, ref) => {
 
     const [visible, setVisible] = useState<boolean>(false);
+    const [myList, setMyList] = useState<Channel[]>([]);
+    const [recommendList, setRecommendList] = useState<Channel[]>([]);
+    const [edit, setEdit] = useState<boolean>(false);
 
     const show = () => {
         setVisible(true);
@@ -35,8 +41,31 @@ export default forwardRef((props: Props, ref) => {
         }
     });
 
-    const myList = props.channelList.filter(item => item.isAdd);
-    const recommendList = props.channelList.filter(item => !item.isAdd);
+    useEffect(() => {
+        const list = props.channelList;
+        setMyList(list.filter(item => item.isAdd));
+        setRecommendList(list.filter(item => !item.isAdd));
+    }, []);
+
+    const onMyItemPress = (item: Channel) => {
+        if (!edit) {
+            return;
+        }
+        const newMyList = myList.filter(i => i.name !== item.name);
+        const newRecommendList = [...recommendList, {...item, isAdd: false}];
+        setMyList(newMyList);
+        setRecommendList(newRecommendList);
+    }
+
+    const onRecommendItemPress = (item: Channel) => {
+        if (!edit) {
+            return;
+        }
+        const newRecommendList = recommendList.filter(i => i.name !== item.name);
+        const newMyList = [...myList, {...item, isAdd: true}];
+        setMyList(newMyList);
+        setRecommendList(newRecommendList);
+    }
 
     const renderMyChannelLayout = () => {
         return (
@@ -45,8 +74,19 @@ export default forwardRef((props: Props, ref) => {
                 <Text className="text-gray-500 text-base ml-2">点击进入频道</Text>
                 <View className="flex-1" />
                 <TouchableOpacity
-                    className="px-3 py-1 bg-gray-100 rounded-full justify-center items-center">
-                    <Text className="text-blue-400 text-base">进入编辑</Text>
+                    className="px-3 py-1 bg-gray-100 rounded-full justify-center items-center"
+                    onPress={() => {
+                        setEdit((data => {
+                            if (data) {
+                                props.onSaveChannel?.([...myList, ...recommendList]);
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }));
+                    }}
+                    >
+                    <Text className="text-blue-400 text-base">{edit ? "完成编辑" : "进入编辑"}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     className="w-8 w-8 items-center justify-center"
@@ -78,13 +118,25 @@ export default forwardRef((props: Props, ref) => {
                     `
                 }
                 style={{ width: ITEM_WIDTH }}
+                disabled={item.default}
+                onPress={() => {
+                    if (item.isAdd) {
+                        onMyItemPress(item);
+                    } else {
+                        onRecommendItemPress(item);
+                    }
+                }}
                 >
-                { !item.isAdd && 
+                { (!item.isAdd && edit) && 
                     <Image 
                         className="w-3.5 h-3.5 mr-1 rotate-45"
                         source={icon_close_modal} />
                 }
                 <Text className="text-gray-500">{item.name}</Text>
+                { (item.isAdd && !item.default && edit) && <Image 
+                    className="w-4 h-4 absolute -top-1.5 -right-1.5"
+                    source={icon_delete} />
+                }
             </TouchableOpacity>
         );
     }
@@ -92,11 +144,15 @@ export default forwardRef((props: Props, ref) => {
     const renderChannelGrad = (channelList: Channel[]) => {
         
         return (
-            <FlatList 
+            <FlatList
+                contentContainerStyle={{
+                    paddingVertical: 8,
+                }}
                 data={channelList}
                 renderItem={renderChannelItem}
                 keyExtractor={(item, index) => `${item.name}-${index}`}
                 numColumns={4}
+                nestedScrollEnabled={false}
                 />
         );
     }
@@ -110,12 +166,12 @@ export default forwardRef((props: Props, ref) => {
             onRequestClose={hide}
         >
             <View className="w-full h-full flex-col">
-                <View className="w-full h-5/6 bg-white mt-12" >
+                <ScrollView className="w-full h-5/6 bg-white mt-12" >
                     {renderMyChannelLayout()}
                     {renderChannelGrad(myList)}
                     {renderRecommendChannelLayout()}
                     {renderChannelGrad(recommendList)}
-                </View>
+                </ScrollView>
                 <View className="w-full flex-1 bg-black/50" />
             </View>
         </Modal>

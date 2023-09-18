@@ -83,7 +83,6 @@ export default observer(() => {
                 ListHeaderComponent={<ChannelList 
                     channelList={myChannelList} 
                     onArrowPress={() => {
-                        console.log("这里执行到了");
                         channelModalRef.current?.show();
                     }}
                     />}
@@ -91,6 +90,9 @@ export default observer(() => {
             <ChannelModal
                 ref={channelModalRef}
                 channelList={channelStore.channelList}
+                onSaveChannel={(channelList) => {
+                    channelStore.saveChannelList(channelList);
+                }}
                 />
         </View>
     );
