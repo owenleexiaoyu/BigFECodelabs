@@ -22,6 +22,8 @@ export default (props: Props) => {
                     alignItems: "center",
                     height: "100%"
                 }}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
                 >
                 {channelList.map((item, index) => {
                     return (

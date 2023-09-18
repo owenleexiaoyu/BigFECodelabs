@@ -33,6 +33,7 @@ export class ChannelStore {
 
     saveChannelList = async (list: Channel[]) => {
         save("channel_list", JSON.stringify(list));
+        this.setChannelList(list);
     }
 }
 

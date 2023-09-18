@@ -106,6 +106,7 @@ export default forwardRef((props: Props, ref) => {
                 <Text className="text-black text-lg font-bold">推荐频道</Text>
                 <Text className="text-gray-500 text-base ml-2">点击添加频道</Text>
             </View>
+            
         );
     }
 
