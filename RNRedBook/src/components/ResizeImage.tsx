@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, Image } from "react-native";
+import { Image } from "react-native";
 
 type Props = {
     uri: string,
+    targetWidth: number,
+    defaultHeight: number,
 }
 
-const SCREEN_WIDTH = Dimensions.get("screen").width;
-const SHOW_WIDTH = (SCREEN_WIDTH - 18) / 2;
+export default ({ uri, targetWidth, defaultHeight }: Props) => {
 
-export default ({ uri }: Props) => {
-
-    const [height, setHeight] = useState(200);
+    const [height, setHeight] = useState(defaultHeight);
     
     useEffect(() => {
         Image.getSize(uri, (width: number, height: number) => {
-            const showHeight = SHOW_WIDTH * height / width;
+            const showHeight = targetWidth * height / width;
             setHeight(showHeight);
-        })
+        });
     }, [uri]);
 
     return (
         <Image 
             style={{
-                width: SHOW_WIDTH,
+                width: targetWidth,
                 height: height,
                 resizeMode: "cover",
             }}

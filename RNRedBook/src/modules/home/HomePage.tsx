@@ -1,6 +1,6 @@
 import { observer, useLocalObservable } from "mobx-react";
-import React, { useEffect, useRef } from "react";
-import { View, Text, StatusBar, Image } from "react-native";
+import React, { useCallback, useEffect, useRef } from "react";
+import { View, Text, StatusBar, Image, TouchableOpacity } from "react-native";
 import HomeListStore from "./HomeListStore";
 import { Dimensions } from "react-native";
 import FlowList from "../../components/flowlist/FlowList";
@@ -10,9 +10,12 @@ import TopBar from "./components/TopBar";
 import { ChannelStore } from "./ChannelStore";
 import ChannelList from "./components/ChannelList";
 import ChannelModal, { ChannelModalRef } from "./components/ChannelModal";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
+const ITEM_IMG_SHOW_WIDTH = (SCREEN_WIDTH - 18) / 2;
 
 export default observer(() => {
 
@@ -21,20 +24,32 @@ export default observer(() => {
 
     const channelModalRef = useRef<ChannelModalRef>(null);
 
+    const navigation = useNavigation<StackNavigationProp<any>>();
+
     useEffect(() => {
         listStore.refreshHomeList();
         channelStore.getChannelList();
     }, []);
 
+    const onArticlePress = useCallback((article: ArticleSimple) => () => {
+        navigation.push("detail", {id: article.id});
+    }, []);
+
     const renderItem = ({item, index}: {item: ArticleSimple, index: number}) => {
         return (
-            <View 
+            <TouchableOpacity 
                 className="flex-col bg-white ml-1.5 mb-1.5 rounded-lg overflow-hidden "
                 style={{ 
                     width: (SCREEN_WIDTH - 18) / 2,
                 }}
+                onPress={onArticlePress(item)}
+                activeOpacity={0.7}
                 >
-                <ResizeImage uri={item.image}/>
+                <ResizeImage 
+                    uri={item.image}
+                    targetWidth={ITEM_IMG_SHOW_WIDTH}
+                    defaultHeight={200}
+                    />
                 <Text className="text-black text-base font-bold px-2 py-2">{item.title}</Text>
                 <View className="w-full flex-row px-2 pb-2 items-center">
                     <Image 
@@ -47,7 +62,7 @@ export default observer(() => {
                         favorite={item.isFavorite} />
                     <Text className="text-sm text-gray-300 ml-1">{item.favoriteCount}</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     }
 

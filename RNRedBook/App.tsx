@@ -9,6 +9,7 @@ import {
 import WelcomePage from './src/modules/welcome/WelcomePage';
 import LoginPage from './src/modules/login/LoginPage';
 import MainPage from './src/modules/main/MainPage';
+import ArticleDetailPage from './src/modules/detail/ArticleDetailPage';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ function App(): JSX.Element {
       <View className='w-full h-full bg-white'>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName='main'
+            initialRouteName='welcome'
             >
             <Stack.Screen 
               name="welcome"
@@ -43,6 +44,14 @@ function App(): JSX.Element {
             <Stack.Screen 
               name="main"
               component={MainPage}
+              options={{
+                headerShown: false,
+                ...TransitionPresets.SlideFromRightIOS
+              }}
+            />
+            <Stack.Screen 
+              name="detail"
+              component={ArticleDetailPage}
               options={{
                 headerShown: false,
                 ...TransitionPresets.SlideFromRightIOS

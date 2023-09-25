@@ -1,5 +1,5 @@
 import { request } from "../utils/Request"
-import { flow } from "mobx";
+import { action, flow, makeObservable, observable } from "mobx";
 import { load, save } from "../utils/Storage";
 import Loading from "../components/widget/Loading";
 
@@ -7,7 +7,19 @@ const KEY_USER_INFO = "user_info"
 
 class UserStore {
 
-    userInfo: any;
+    userInfo: any = {};
+
+    setUserInfo = (userInfo: any) => {
+        console.log("UserStore ===> setUserInfo");
+        this.userInfo = userInfo;
+    }
+
+    constructor() {
+        makeObservable(this, {
+            userInfo: observable,
+            setUserInfo: action,
+        });
+    }
 
     // 不使用 mobx 的写法
     // requestLogin = async (
@@ -50,7 +62,7 @@ class UserStore {
             const { data } = yield request("login", params);
             console.log(`UserStore ===> login result: ${JSON.stringify(data)}`);
             if (data) {
-                this.userInfo = data;
+                this.setUserInfo(data);
                 save(KEY_USER_INFO, JSON.stringify(data));
                 callback?.(true);
             } else {
@@ -76,7 +88,7 @@ class UserStore {
         } else {
             const cacheUserInfo = await load(KEY_USER_INFO);
             if (cacheUserInfo) {
-                this.userInfo = JSON.parse(cacheUserInfo);
+                this.setUserInfo(JSON.parse(cacheUserInfo));
                 return this.userInfo;
             }
         }
