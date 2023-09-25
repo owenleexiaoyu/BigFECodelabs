@@ -9,6 +9,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import icon_nice_goods from "../../assets/icon_nice_goods.png";
 import icon_heart_empty from "../../assets/icon_heart_empty.png";
 import icon_heart from "../../assets/icon_heart.png";
+import icon_collection from "../../assets/icon_collection.png";
+import icon_collection_selected from "../../assets/icon_collection_selected.png";
+import icon_comment from "../../assets/icon_comment.png";
 import UserStore from "../../stores/UserStore";
 import DetailImageSlider from "./components/DetailImageSlider";
 
@@ -136,6 +139,43 @@ export default observer(() => {
                 { renderInfo() }
                 { renderCommentArea(store.articleDetail) }
             </ScrollView>
+            <View
+                className="w-full h-16 flex-row items-center px-4 bg-white border-t border-t-gray-100">
+                <TextInput 
+                    className="flex-1 bg-gray-200 rounded-full px-4"
+                    placeholder="说点什么..."
+                    />
+                <TouchableOpacity
+                    className="flex-row items-center ml-3">
+                    <Image 
+                        className="w-9 h-9"
+                        source={store.articleDetail.isFavorite ? icon_heart : icon_heart_empty}
+                        tintColor={store.articleDetail.isFavorite ? "#ff2442": "#555"}
+                        />
+                    <Text className="ml-1 text-base text-black font-bold">
+                        {store.articleDetail.favoriteCount || 0}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    className="flex-row items-center ml-2">
+                    <Image 
+                        className="w-9 h-9"
+                        source={store.articleDetail.isFavorite ? icon_collection_selected : icon_collection}
+                        />
+                    <Text className="ml-1 text-base text-black font-bold">
+                        {store.articleDetail.collectionCount || 0}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    className="flex-row items-center ml-2">
+                    <Image 
+                        className="w-9 h-9"
+                        source={icon_comment}/>
+                    <Text className="ml-1 text-base text-black font-bold">
+                        {store.articleDetail.comments?.length || 0}
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     ) : null;
 });
