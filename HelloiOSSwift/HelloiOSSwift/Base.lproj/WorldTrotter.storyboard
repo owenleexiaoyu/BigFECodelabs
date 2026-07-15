@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g7L-zQ-sho">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Nz7-eD-P6O">
+            <objects>
+                <tabBarController storyboardIdentifier="WorldTrotterVC" automaticallyAdjustsScrollViewInsets="NO" id="g7L-zQ-sho" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SrT-XI-JQY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="LtS-kd-bqP" kind="relationship" relationship="viewControllers" id="O7m-h0-dTK"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="gqR-uR-6nm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKz-5t-ulE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456" y="-20"/>
+        </scene>
+        <!--Convert Screen-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController title="Convert Screen" id="Y6W-OH-hqX" customClass="ConvertViewController" customModule="HelloiOSSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit（℉）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skE-dC-gqB">
+                                <rect key="frame" x="104" y="223.33333333333334" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.53129919859999997" blue="0.13955085619999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0J-dd-8QO">
+                                <rect key="frame" x="175" y="254.33333333333337" width="43" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxy-7W-iuY">
+                                <rect key="frame" x="140.33333333333334" y="348.33333333333331" width="112.66666666666666" height="84"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
+                                <color key="textColor" red="1" green="0.53129919859999997" blue="0.13955085619999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius(℃)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvg-bE-Vcf">
+                                <rect key="frame" x="119.66666666666669" y="442.33333333333331" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.53129919859999997" blue="0.13955085619999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkN-9k-TMe">
+                                <rect key="frame" x="111.00000000000001" y="128" width="171.33333333333337" height="85.333333333333314"/>
+                                <color key="textColor" red="1" green="0.53129919859999997" blue="0.13955085619999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="fahrenheitFieldEditingChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="mh1-UN-BG9"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="rWa-6T-VvP"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="skE-dC-gqB" firstAttribute="centerX" secondItem="YkN-9k-TMe" secondAttribute="centerX" id="3Sb-oA-UJ5"/>
+                            <constraint firstItem="YkN-9k-TMe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="10" id="5P6-BW-ziK"/>
+                            <constraint firstItem="g0J-dd-8QO" firstAttribute="centerX" secondItem="YkN-9k-TMe" secondAttribute="centerX" id="7cV-C9-AoU"/>
+                            <constraint firstItem="mxy-7W-iuY" firstAttribute="top" secondItem="g0J-dd-8QO" secondAttribute="bottom" constant="10" id="F5u-iP-9i8"/>
+                            <constraint firstItem="g0J-dd-8QO" firstAttribute="top" secondItem="skE-dC-gqB" secondAttribute="bottom" constant="10" id="U1C-d6-r4b"/>
+                            <constraint firstItem="vvg-bE-Vcf" firstAttribute="centerX" secondItem="YkN-9k-TMe" secondAttribute="centerX" id="VYH-nL-gQS"/>
+                            <constraint firstItem="mxy-7W-iuY" firstAttribute="centerX" secondItem="YkN-9k-TMe" secondAttribute="centerX" id="XZO-jN-IrS"/>
+                            <constraint firstItem="vvg-bE-Vcf" firstAttribute="top" secondItem="mxy-7W-iuY" secondAttribute="bottom" constant="10" id="YaN-b9-5m9"/>
+                            <constraint firstItem="skE-dC-gqB" firstAttribute="top" secondItem="YkN-9k-TMe" secondAttribute="bottom" constant="10" id="ald-tL-6JN"/>
+                            <constraint firstItem="YkN-9k-TMe" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="c9f-Un-TOC"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="efi-VT-RBJ" appends="YES" id="b3K-ox-ijz"/>
+                            <outletCollection property="gestureRecognizers" destination="efi-VT-RBJ" appends="YES" id="2SQ-0o-l3R"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Convert" image="ConvertIcon" id="Iv8-JB-JG0"/>
+                    <connections>
+                        <outlet property="celsiusLabel" destination="mxy-7W-iuY" id="Exy-bq-PEj"/>
+                        <outlet property="textField" destination="YkN-9k-TMe" id="l5R-iq-r8d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="efi-VT-RBJ">
+                    <connections>
+                        <action selector="dismissKeyBoard:" destination="Y6W-OH-hqX" id="jrs-aV-BNa"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2002" y="-402"/>
+        </scene>
+        <!--Map Screen-->
+        <scene sceneID="PTI-xq-yRt">
+            <objects>
+                <viewController title="Map Screen" id="LtS-kd-bqP" customClass="MapViewController" customModule="HelloiOSSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="z2o-AI-zP1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <standardMapConfiguration key="preferredConfiguration"/>
+                    </mapView>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="vgH-QT-6Gn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j5d-oL-lW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2002" y="319"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ConvertIcon" width="48.333332061767578" height="32.333332061767578"/>
+        <image name="MapIcon" width="48.333332061767578" height="32.333332061767578"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,15 @@
+
+/* Class = "UITabBarItem"; title = "Convert"; ObjectID = "Iv8-JB-JG0"; */
+"Iv8-JB-JG0.title" = "温度转换";
+
+/* Class = "UITextField"; placeholder = "value"; ObjectID = "YkN-9k-TMe"; */
+"YkN-9k-TMe.placeholder" = "数值";
+
+/* Class = "UILabel"; text = "华氏度（℉）"; ObjectID = "skE-dC-gqB"; */
+"skE-dC-gqB.text" = "华氏度（℉）";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "vgH-QT-6Gn"; */
+"vgH-QT-6Gn.title" = "地图";
+
+/* Class = "UILabel"; text = "摄氏度(℃)"; ObjectID = "vvg-bE-Vcf"; */
+"vvg-bE-Vcf.text" = "摄氏度(℃)";
