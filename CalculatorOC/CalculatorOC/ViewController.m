@@ -6,12 +6,13 @@
 //
 
 #import "ViewController.h"
+#import "CalculatorEngine.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) UILabel *displayLabel;
 @property (nonatomic, strong) UIStackView *rootContainer;
-
+@property (nonatomic, strong) CalculatorEngine *calculatorEngine;
 @end
 
 @implementation ViewController
@@ -37,6 +38,9 @@
     
     // 添加最后一行按键
     [self addLastRow];
+    
+    // 初始化 calculatorEngine
+    self.calculatorEngine = [[CalculatorEngine alloc] init];
 }
 
 - (void)initDisplayLabel {
@@ -153,6 +157,43 @@
 
 - (void)onButtonClicked:(UIButton *)sender {
     NSLog(@"Click %@", sender.currentTitle);
+    NSString *title = sender.currentTitle;
+    if (title == nil) {
+        return;
+    }
+    if ([@[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"] containsObject:title]) {
+        // 输入数字
+        [self.calculatorEngine inputDigit:title];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"." isEqualToString:title]) {
+        // 输入小数点
+        [self.calculatorEngine inputDecimalPoint];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"+" isEqualToString:title]) {
+        [self.calculatorEngine inputOperator:CalculatorOperatorAdd];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"-" isEqualToString:title]) {
+        [self.calculatorEngine inputOperator:CalculatorOperatorSubtract];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"*" isEqualToString:title]) {
+        [self.calculatorEngine inputOperator:CalculatorOperatorMultiply];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"/" isEqualToString:title]) {
+        [self.calculatorEngine inputOperator:CalculatorOperatorDivide];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"=" isEqualToString:title]) {
+        [self.calculatorEngine inputEqual];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"AC" isEqualToString:title]) {
+        [self.calculatorEngine clear];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"+/-" isEqualToString:title]) {
+        [self.calculatorEngine toggleSign];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    } else if ([@"%" isEqualToString:title]) {
+        [self.calculatorEngine percentage];
+        [self.displayLabel setText:self.calculatorEngine.displayText];
+    }
 }
 
 @end
