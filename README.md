@@ -6,8 +6,11 @@
 | **代码练习** |  |
 | [HelloTS](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/HelloTS) | TypeScript 语言练习代码  |
 | [HelloRN](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/HelloRN) | 《从 0 到 1 学习 React Native》教程练习代码  |
-| [HelloObjectiveC](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/HelloObjectiveC) | 《Objective-C 编程》一书练习代码  |
+| [HelloObjectiveC](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/HelloObjectiveC) | 《Objective-C 编程（第二版）》一书练习代码  |
 | [HelloiOS](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/HelloiOS) | iOS 开发练习代码  |
+| [HelloiOSSwift](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/HelloiOSSwift) | [iOS Programming: The Big Nerd Ranch Guide, 7th Edition](https://www.amazon.com/iOS-Programming-Nerd-Ranch-Guide/dp/0135264022) 这本书学习的示例代码，将所有代码都放到了一个 App 中 |
+| [Landmarks](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/Landmarks) | 学习 iOS SwiftUI 的小项目，教程来自 [Apple SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui/)  |
 | **完整项目** |  |
 | [RNAccountManager](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/RNAccountManager) | 用 React Native 实现一个账号密码管理 App  |
 | [RNRedBook](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/RNRedBook) | 用 React Native 高仿小红书 App  |
+| [CalculatorOC](https://github.com/owenleexiaoyu/BigFECodelabs/tree/main/CalculatorOC) | 用 OC 写的一个简单的 iOS 计算器应用 |
