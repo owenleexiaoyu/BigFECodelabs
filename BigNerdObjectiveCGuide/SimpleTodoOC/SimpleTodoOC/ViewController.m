@@ -1,18 +1,19 @@
 //
 //  ViewController.m
-//  HelloiOS
+//  SimpleTodoOC
 //
-//  Created by ByteDance on 2023/12/7.
+//  Created by Owen on 2026/7/29.
 //
 
 #import "ViewController.h"
+
 
 NSString *taskStoragePath(void) {
     NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     return [pathList[0] stringByAppendingPathComponent:@"data.td"];
 }
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDataSource>
 
 - (void)loadTaskFromCache;
 
@@ -29,7 +30,7 @@ NSString *taskStoragePath(void) {
     CGRect tableFrame = CGRectMake(0, 130, winFrame.size.width, winFrame.size.height - 140);
     CGRect fieldFrame = CGRectMake(20, 60, 200, 60);
     CGRect buttonFrame = CGRectMake(230, 60, 100, 60);
-    
+        
     [self loadTaskFromCache];
 
     // 创建并设置 UITableView 对象
@@ -55,7 +56,6 @@ NSString *taskStoragePath(void) {
     [self.view addSubview:self.taskTable];
     [self.view addSubview:self.taskField];
     [self.view addSubview:self.insertButton];
-
 }
 
 - (void)addTask:(id)sender {
@@ -87,13 +87,6 @@ NSString *taskStoragePath(void) {
     }
 }
 
-//- (void)viewWillDisappear:(BOOL)animated {
-//    NSLog(@"viewWillDisappear");
-//    [self cacheTasks];
-//}
-
-
-
 #pragma mark - 管理表格视图
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -107,6 +100,5 @@ NSString *taskStoragePath(void) {
     c.textLabel.text = item;
     return c;
 }
-
 
 @end

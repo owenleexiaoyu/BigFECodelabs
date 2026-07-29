@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.m
-//  HelloiOS
+//  SimpleTodoOC
 //
-//  Created by ByteDance on 2023/12/7.
+//  Created by Owen on 2026/7/29.
 //
 
 #import "SceneDelegate.h"

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  HelloiOS
+//  SimpleTodoOC
 //
-//  Created by ByteDance on 2023/12/7.
+//  Created by Owen on 2026/7/29.
 //
 
 #import "AppDelegate.h"
@@ -29,6 +29,10 @@
     return YES;
 }
 
+/**
+ 当应用退出运行，或者进入后台运行状态时，回调 applicationDidEnterBackground 方法，
+ 在这里将任务数组保存到文件里。
+ */
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     NSLog(@"applicationDidEnterBackground");
     ViewController *taskVC = (ViewController*)self.window.rootViewController;

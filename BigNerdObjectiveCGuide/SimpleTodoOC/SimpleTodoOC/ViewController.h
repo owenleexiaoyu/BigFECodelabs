@@ -1,15 +1,15 @@
 //
 //  ViewController.h
-//  HelloiOS
+//  SimpleTodoOC
 //
-//  Created by ByteDance on 2023/12/7.
+//  Created by Owen on 2026/7/29.
 //
 
 #import <UIKit/UIKit.h>
 
 NSString *taskStoragePath(void);
 
-@interface ViewController : UIViewController <UITableViewDataSource>
+@interface ViewController : UIViewController
 
 @property (nonatomic) UITableView *taskTable;
 @property (nonatomic) UITextField *taskField;

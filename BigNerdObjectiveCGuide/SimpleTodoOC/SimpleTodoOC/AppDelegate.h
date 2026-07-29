@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  HelloiOS
+//  SimpleTodoOC
 //
-//  Created by ByteDance on 2023/12/7.
+//  Created by Owen on 2026/7/29.
 //
 
 #import <UIKit/UIKit.h>
@@ -10,7 +10,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end
 
